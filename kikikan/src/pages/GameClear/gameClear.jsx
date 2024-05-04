@@ -4,11 +4,9 @@ import congratulation from "../../assets/congratulations.png";
 import face from "../../assets/face.png";
 import "./gameClear.css";
 import { LevelButton } from "../../components/LevelButton/levelButton";
+import { TitleButton } from "../../components/TitleButton/titleButton";
 
 export const GameClear = () => {
-  const handleClick = () => {
-    window.location.href = "/";
-  };
   return (
     <div className="clear-container">
       <img src={logo} className="logo" />
@@ -31,11 +29,7 @@ export const GameClear = () => {
           <div className="clear-massage">良いKIKIKANを持っているじゃないか</div>
         </div>
       </div>
-      <div className="title-button-wrapper">
-        <button className="title-button" onClick={handleClick}>
-          タイトルへ戻る
-        </button>
-      </div>
+      <TitleButton />
     </div>
   );
 };
