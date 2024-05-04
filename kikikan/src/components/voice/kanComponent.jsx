@@ -4,7 +4,7 @@ import { RenderMeter, CalculatePeakLevel } from './utils';
 import VibrationImage from './vibrationImage';
 import test from '../../assets/kan.jpeg';
 
-const VolumeMeter = () => {
+const KanComponent = (props) => {
   // メータ要素への参照を保持するref
   const meterRef = useRef(null);
   const [volumeData, setVolumeData] = useState(null);
@@ -16,8 +16,8 @@ const VolumeMeter = () => {
       // eventhandler
       const onProcess = (event) => {
         const data = event.inputBuffer.getChannelData(0);
-        const percent = CalculatePeakLevel(data);
-        RenderMeter(percent, meterRef.current);
+        // const percent = CalculatePeakLevel(data);
+        // RenderMeter(percent, meterRef.current);
         setVolumeData(data)
       };
 
@@ -33,12 +33,11 @@ const VolumeMeter = () => {
   );
 
   return (
-    <div>
-      <div style={{ border: '1px solid black', width: '500px' }}>
-        <div ref={meterRef} style={{ height: '10px', background: 'black', transition: 'width .5s', width: '0%' }} />
-      </div>
+    <div >
+      {/* 音量データが存在する場合のみImageDistortionコンポーネントを表示 */}
+      {volumeData && <VibrationImage volumeData={volumeData} filepath={props.img} x={props.x} y={props.y} size={props.size}/>}
     </div>
   )
 }
 
-export default VolumeMeter;
+export default KanComponent;

@@ -1,6 +1,8 @@
 import {NavLink} from "react-router-dom";
 import { useState, useEffect, useRef } from 'react';
 import VolumeMeter from '../../components/voice/volumeMeter';
+import KanConponent from "../../components/voice/kanComponent";
+import test from '../../assets/kan.jpeg';
 
 let animationController;
 
@@ -54,6 +56,9 @@ export const NormalGame = () => {
     <div>
       <h1>NormalGame</h1>
       <VolumeMeter />
+      {/* <VolumeMeter/> */}
+      <KanConponent x={10} y={10} img={'kan'} size={100}/>
+      <KanConponent x={100} y={10} img={'test'} size={100}/>
       <input
         type="file"
         onChange={({ target: { files } }) => files[0] && setFile(files[0])}
