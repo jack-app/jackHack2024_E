@@ -1,10 +1,13 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { CreateAudioContext, CreateProcessor, CreateSource } from './audioContext';
 import { RenderMeter, CalculatePeakLevel } from './utils';
+import VibrationImage from './vibrationImage';
+import test from '../../assets/kan.jpeg';
 
 const VolumeMeter = () => {
   // メータ要素への参照を保持するref
   const meterRef = useRef(null);
+  const [volumeData, setVolumeData] = useState(null);
 
   useEffect(() => {
     const startAudio = async () => {
@@ -15,7 +18,7 @@ const VolumeMeter = () => {
         const data = event.inputBuffer.getChannelData(0);
         const percent = CalculatePeakLevel(data);
         RenderMeter(percent, meterRef.current);
-
+        setVolumeData(data)
       };
 
       // ScriptProcessorNodeを作成　イベントハンドラ設定
@@ -31,10 +34,11 @@ const VolumeMeter = () => {
 
   return (
     <div>
-      <div style={{border: '1px solid block',width: '500px'}}>
-        <div ref={meterRef} style={{height: '10px',backend:'block', transition: 'width .1s', width: '0%' }}></div>
-
+      <div style={{ border: '1px solid black', width: '500px' }}>
+        <div ref={meterRef} style={{ height: '10px', background: 'black', transition: 'width .5s', width: '0%' }} />
       </div>
+      {/* 音量データが存在する場合のみImageDistortionコンポーネントを表示 */}
+      {volumeData && <VibrationImage volumeData={volumeData} filepath={test}/>}
     </div>
   )
 }
