@@ -1,0 +1,97 @@
+:root {
+  font-family: var(--font-japanese);
+}
+
+.wrapper {
+  align-items: center;
+  margin: 2vw;
+  
+}
+
+
+.name_context {
+  display: flex;
+  margin: 5vw 8vw;
+  padding: 0;
+  justify-content: center;
+  text-align: center;
+}
+
+.name_text {
+  font-family: var(--font-japanese);
+  margin: 2vw;
+  padding: 0;
+  font-size: 4vw;
+}
+
+input {
+  width: 40vw;
+  height: 5vw;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  font-size: 3vw;
+  font-family: var(--font-japanese);
+  border: 5px solid;
+}
+
+.level_context {
+  display: flex;
+}
+
+.context {
+  margin: 0 5vw;
+}
+
+.message_context {
+  display: flex;
+}
+
+.message {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 15px 1.5em 0;
+  padding: 7px 10px;
+  width: 40vw;
+  color: black;
+  font-size: 4vw;
+  background: #fff;
+  border: solid 3px black;
+  box-sizing: border-box;
+}
+
+.message:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  margin-top: -12px;
+  border: 12px solid transparent;
+  border-left: 12px solid #fff;
+  z-index: 2;
+}
+
+.message:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  margin-top: -14px;
+  border: 14px solid transparent;
+  border-left: 14px solid #555;
+  z-index: 1;
+}
+
+.message p {
+  padding: 1vw;
+  font-size: 3vw;
+  text-align: center;
+  justify-content: center;
+}
+
+.face {
+  width: 170px;
+  height: 200px;
+  margin-top: 5vw;
+}

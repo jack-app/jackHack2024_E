@@ -1,0 +1,11 @@
+.wrapper {
+  align-items: center;
+  margin: 1rem;
+}
+
+.text {
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+  padding: 2vw 7vw ;
+}
