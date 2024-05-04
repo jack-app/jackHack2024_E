@@ -1,11 +1,12 @@
-.wrapper {
+.level_button_wrapper {
   align-items: center;
   margin: 1rem;
 }
 
-.text {
+.level_button_text {
   background-color: black;
   color: white;
   font-size: 2rem;
+  font-family: var(--font-japanese);
   padding: 2vw 7vw ;
 }
