@@ -3,6 +3,7 @@ import { CreateAudioContext } from './audioContext';
 import { CalculatePeakLevel } from './utils';
 import imageUrl from '../../assets/kan.jpeg'
 import imageUrl2 from '../../assets/test.png'
+import Hover from './hover'
 
 // 検索でどうにかする
 const getImage = {
@@ -10,9 +11,9 @@ const getImage = {
   'test' : imageUrl2
 };
 
+// 振動
 const VibrationImage = ({volumeData,filepath,x,y,size}) => {
   const imgRef = useRef(null);
-  // imageUrl = '../../assets/kan.jpeg'
   useEffect(() => {
     const img = imgRef.current;
     const scaleFactor = size / 100;
@@ -31,16 +32,21 @@ const VibrationImage = ({volumeData,filepath,x,y,size}) => {
   
   },[volumeData, filepath, x, y, size]);
 
+
   return (
-    <img
-      ref={imgRef}
-      src={getImage[filepath]}
-      alt="Vibration Image"
-      style={{
-        display: 'block',
-        transformOrigin: 'top left',
-      }}
-    />
+    <div>
+      <Hover content="nanika">
+        <img
+        ref={imgRef}
+        src={getImage[filepath]}
+        alt="Vibration Image"
+        style={{
+          display: 'block',
+          position: 'absolute',
+        }}
+        />
+      </Hover>
+    </div>
   );
 }
 export default VibrationImage
