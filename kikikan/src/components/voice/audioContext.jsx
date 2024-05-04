@@ -11,7 +11,7 @@ export const CreateAudioContext = async () => {
 };
 
 export const CreateProcessor = (ctx, onProcess) => {
-  // バッファサイズ2024(イベントが起こる単位),入力チャンネル1,出力チャンネル1で新しいScriptProcessor
+  // バッファサイズ1024(イベントが起こる単位),入力チャンネル1,出力チャンネル1で新しいScriptProcessor
   const processor = ctx.createScriptProcessor(1024, 1, 1);
   // オーディオプロセスイベントハンドラを設定
   processor.onaudioprocess = onProcess;

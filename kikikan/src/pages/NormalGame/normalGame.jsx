@@ -1,5 +1,7 @@
 import {NavLink} from "react-router-dom";
 import { useState, useEffect, useRef } from 'react';
+import VolumeMeter from '../../components/voice/volumeMeter';
+
 let animationController;
 
 export const NormalGame = () => {
@@ -51,6 +53,7 @@ export const NormalGame = () => {
   return (
     <div>
       <h1>NormalGame</h1>
+      <VolumeMeter />
       <input
         type="file"
         onChange={({ target: { files } }) => files[0] && setFile(files[0])}
