@@ -58,7 +58,7 @@ export const NormalGame = () => {
       <VolumeMeter />
       {/* <VolumeMeter/> */}
       <KanConponent x={10} y={10} img={'kan'} size={100}/>
-      <KanConponent x={100} y={10} img={'test'} size={100}/>
+      <KanConponent x={20} y={10} img={'test'} size={100}/>
       <input
         type="file"
         onChange={({ target: { files } }) => files[0] && setFile(files[0])}
