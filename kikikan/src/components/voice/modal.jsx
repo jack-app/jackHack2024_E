@@ -44,11 +44,14 @@ const Modal = (props) => {
   const [count, setCount] = useLocalStorage("counter", "0");
 
   const toProcess = (filepath) => {
-    if (filepath == "bomkan") {
-      // TODO: localStorageに保存
-      setCount(() => `${Number(count) + 1}`);
-      console.log(count);
-      window.location.href = "/gameover";
+    if (filepath === "bomkan") {
+      if (count <= 3) {
+        setCount(() => `${Number(count) + 1}`);
+        console.log(count);
+        closeModel();
+      }else{
+        window.location.href = "/gameover";
+      }
     } else {
       window.location.href = "/gameover";
     }
@@ -70,7 +73,9 @@ const Modal = (props) => {
         <div className="overlay">
           <div className="modal-content">
             {/* <p>{props.content}</p> */}
-            <button className='modal_back_button' onClick={closeModel}>別の缶を見る ↩︎</button>
+            <button className="modal_back_button" onClick={closeModel}>
+              別の缶を見る ↩︎
+            </button>
             <div className="modal-image">
               <img src={getImage[props.filepath]} alt="" />
             </div>
