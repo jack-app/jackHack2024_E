@@ -27,10 +27,7 @@ import face from "../../assets/face.png";
 import "./gameClear.css";
 
 export const GameClear = () => {
-  // const [result, setResults] = useState([]);
-  // const dbRef = ref(db, "result");
-
-  const [easyResults, setEasyResults] = useState([]);
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,13 +35,7 @@ export const GameClear = () => {
       const resultRef = child(dbRef, "result");
 
       // rankが"easy"のデータを取得し、clear_timeでソートする
-      const queryRef = query(
-        resultRef,
-        orderByChild("rank"),
-        equalTo("easy")
-        // orderByChild("clear_time"),
-        // limitToFirst(5)
-      );
+      const queryRef = query(resultRef, orderByChild("rank"), equalTo("easy"));
 
       try {
         const snapshot = await get(queryRef);
@@ -53,7 +44,7 @@ export const GameClear = () => {
           const sortedResults = Object.entries(data)
             .map(([id, result]) => ({ id, ...result }))
             .sort((a, b) => a.clear_time.localeCompare(b.clear_time));
-          setEasyResults(sortedResults);
+          setResults(sortedResults);
         } else {
           console.log("No data available");
         }
@@ -64,7 +55,7 @@ export const GameClear = () => {
 
     fetchData();
   }, []);
-  console.log(easyResults);
+  const length = 5 < results.length ? 5 : results.length; // 最大5位まで表示
   return (
     <div className="clear-container">
       <img src={logo} className="logo_clear" alt="kikikan" />
@@ -78,11 +69,14 @@ export const GameClear = () => {
       <div className="content-wrapper">
         <div className="ranking-wrapper">
           <div className="ranking-table-title">- 初級 RANKING -</div>
-          <RankingRow rank="1" name="ヌヌーピー" time="00:40" />
-          <RankingRow rank="2" name="ヌヌーピー" time="00:41" />
-          <RankingRow rank="3" name="ヌヌーピー" time="00:42" />
-          <RankingRow rank="4" name="ヌヌーピー" time="00:43" />
-          <RankingRow rank="5" name="ヌヌーピー" time="00:44" />
+          {results.slice(0, length).map((result, index) => (
+            <RankingRow
+              key={uuid()}
+              rank={index + 1}
+              name={result.name}
+              time={result.clear_time}
+            />
+          ))}
           <div className="ranking-table-content">...</div>
           <div className="ranking-table-content-me">44位 マロン 44:44</div>
         </div>
