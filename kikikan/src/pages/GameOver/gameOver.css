@@ -1,0 +1,23 @@
+.gameover-container {
+ text-align: center;
+}
+
+.joji-message {
+ margin-left: 200px;
+ margin-right: 100px;
+ width: 800px;
+ height: 300px;
+ border-radius: 40px;
+ border: 8px solid black;
+ background-color: white;
+}
+
+.jojiface {
+ margin-top: 20px;
+ width: 50%
+;
+}
+
+.aoribun-wrapper {
+ display: flex;
+}
