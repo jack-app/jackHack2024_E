@@ -106,6 +106,7 @@
   z-index: 10;
   bottom: 63vw;
   left: -20vw;
+  opacity: 0.4;
 }
 
 .easy_game_screen_kan_2 {
@@ -113,4 +114,89 @@
   z-index: 10;
   bottom: 70vw;
   left: 50vw;
+  opacity: 0.4;
+}
+
+.easy_game_screen_kan_3 {
+  position: absolute;
+  z-index: 10;
+  bottom: 63vw;
+  left: -17vw;
+  opacity: 0.4;
+}
+
+.easy_game_screen_kan_4 {
+  position: absolute;
+  z-index: 10;
+  bottom: 63vw;
+  left: -27vw;
+  opacity: 0.4;
+}
+
+.easy_game_screen_kan_5 {
+  position: absolute;
+  z-index: 10;
+  bottom: 60vw;
+  left: -11vw;
+  opacity: 0.4;
+}
+
+.easy_game_screen_kan_6 {
+  position: absolute;
+  z-index: 10;
+  bottom: 58vw;
+  left: -20vw;
+  opacity: 0.4;
+}
+
+.easy_game_screen_kan_7 {
+  position: absolute;
+  z-index: 10;
+  bottom: 67vw;
+  left: -13vw;
+  opacity: 0.4;
+}
+
+.easy_game_screen_kan_8 {
+  position: absolute;
+  z-index: 10;
+  bottom: 73vw;
+  left: -7vw;
+  opacity: 0.4;
+}
+
+.easy_game_screen_kan_9 {
+  position: absolute;
+  z-index: 10;
+  bottom: 61vw;
+  left: 0vw;
+  opacity: 0.4;
+}
+.easy_game_screen_kan_10 {
+  position: absolute;
+  z-index: 10;
+  bottom: 80vw;
+  left: 7vw;
+  opacity: 0.4;
+}
+.easy_game_screen_kan_11 {
+  position: absolute;
+  z-index: 10;
+  bottom: 80vw;
+  left: 35vw;
+  opacity: 0.4;
+}
+.easy_game_screen_kan_12 {
+  position: absolute;
+  z-index: 10;
+  bottom: 80vw;
+  left: 38vw;
+  opacity: 0.3;
+}
+.easy_game_screen_kan_13 {
+  position: absolute;
+  z-index: 10;
+  bottom: 76vw;
+  left: 46w;
+  opacity: 0.3;
 }

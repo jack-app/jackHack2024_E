@@ -3,13 +3,15 @@ import face from "../../assets/face.png";
 import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
 import stage01 from "../../assets/stage01.jpg";
+import benikoji from "../../assets/benikoji.png";
 import "./easyGame.css";
 import KanComponent from "../../components/voice/kanComponent";
+import BeniComponent from "../../components/voice/beniComponent";
 import { MyTimer } from "../../components/Timer/timer";
 
 export const EasyGame = () => {
   const time = new Date();
-  time.setSeconds(time.getSeconds() + 60); // 10秒のタイマー
+  time.setSeconds(time.getSeconds() + 60000000); // 10秒のタイマー
   const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
 
   // タイマー終了時に呼ばれる関数
@@ -58,10 +60,43 @@ export const EasyGame = () => {
         <div className="game_screen">
           
           <div className="easy_game_screen_kan_1">
-            <KanComponent x={3} y={1} img={"bomkan"} size={1} />
+            <KanComponent x={3} y={1} img={"lithium"} size={6} />
           </div>
           <div className="easy_game_screen_kan_2">
-            <KanComponent x={3} y={1} img={"bomkan"} size={2} />
+            <BeniComponent x={3} y={1} img={"benikoji"} size={2} />
+          </div>
+          <div className="easy_game_screen_kan_3">
+            <KanComponent x={3} y={1} img={"lithium"} size={2} />
+          </div>
+          <div className="easy_game_screen_kan_4">
+            <KanComponent x={3} y={1} img={"bomkan"} size={5} />
+          </div>
+          <div className="easy_game_screen_kan_5">
+            <KanComponent x={3} y={1} img={"lithium"} size={2} />
+          </div>
+          <div className="easy_game_screen_kan_6">
+            <KanComponent x={3} y={1} img={"lithium"} size={6} />
+          </div>
+          <div className="easy_game_screen_kan_7">
+            <KanComponent x={3} y={1} img={"bomkan"} size={4} />
+          </div>
+          <div className="easy_game_screen_kan_8">
+            <BeniComponent x={3} y={1} img={"benikoji"} size={3} />
+          </div>
+          <div className="easy_game_screen_kan_9">
+            <KanComponent x={3} y={1} img={"bomkan"} size={7} />
+          </div>
+          <div className="easy_game_screen_kan_10">
+            <KanComponent x={3} y={1} img={"lithium"} size={7} />
+          </div>
+          <div className="easy_game_screen_kan_11">
+            <BeniComponent x={3} y={1} img={"benikoji"} size={3} />
+          </div>
+          <div className="easy_game_screen_kan_12">
+            <KanComponent x={3} y={1} img={"lithium"} size={5} />
+          </div>
+          <div className="easy_game_screen_kan_13">
+            <KanComponent x={3} y={1} img={"lithium"} size={10} />
           </div>
           <img className="screen" src={stage01} alt="" />
         </div>
