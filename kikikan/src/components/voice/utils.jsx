@@ -1,5 +1,5 @@
 export const RenderMeter = (percent, element) => {
-  console.log('Percent:',percent);
+  // console.log('Percent:',percent);
   // 100以上なら背景を赤
   element.style.background = percent <100 ? 'black' : 'red';
 
