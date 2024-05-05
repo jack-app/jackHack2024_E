@@ -3,13 +3,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Jockey+One&family=RocknRoll+One&display=swap");
 
 :root {
-  background-color: rgba(241, 204, 1, 1);
+  /* background-color: rgba(241, 204, 1, 1); */
   --font-japanese: "RocknRoll One", sans-serif;
   --font-english: "Jockey One", sans-serif;
-  background-image: url("../src/assets/stage03.jpg");
-  background-size: cover;
-  background-color: rgba(241, 204, 1, 0.95);
-  background-blend-mode: lighten;
+  /* background-image: url("../src/assets/stage03.jpg"); */
+  /* background-size: cover; */
+  /* background-color: rgba(241, 204, 1, 0.95); */
+  /* background-blend-mode: lighten; */
 }
 
 @media screen and (max-width: 992px) {
