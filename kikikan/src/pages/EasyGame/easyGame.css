@@ -42,6 +42,12 @@
   margin: 2vw;
 }
 
+.game_page_bom_text {
+  color: white;
+  /* font-size: 3vw; */
+  margin: 2vw;
+}
+
 .finding_kan_context {
   background-color: white;
   margin: 3vw;
@@ -83,11 +89,28 @@
 }
 
 .game_screen {
+  z-index: 0;
   width: 90%;
   margin: auto;
+  position: relative;
 }
 .screen {
+  z-index: 1;
   width: 100%;
   margin: auto;
   margin-bottom: 5vw;
+}
+
+.easy_game_screen_kan_1 {
+  position: absolute;
+  z-index: 10;
+  bottom: 63vw;
+  left: -20vw;
+}
+
+.easy_game_screen_kan_2 {
+  position: absolute;
+  z-index: 10;
+  bottom: 70vw;
+  left: 50vw;
 }
