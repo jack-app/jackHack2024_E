@@ -19,10 +19,8 @@ export const LevelButton = ({ name }) => {
     }
   };
   return (
-    <div className="wrapper">
-      <div className="text" onClick={handleClick}>
-        {name}
-      </div>
+    <div className="level_button_wrapper">
+      <button className="level_button_text" onClick={handleClick} >{name}</button>
     </div>
   );
 };
