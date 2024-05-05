@@ -1,0 +1,64 @@
+body {
+    background-image: url("../../assets/start.jsx.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 18% 20%;
+    /* background-attachment: fixed; */
+    /* height: 100%; */
+}
+.logo{
+    height: 20vh;
+    width: 80%;
+    margin: 100px 0 90px 110px;
+}
+.toguro{
+    height: 59vh;
+    width: 70vh;
+    margin-bottom: 10px;
+    position: absolute;
+    left: 60px;
+    bottom: 15px;
+}
+.city{
+    display: block;
+    height: 50vh;
+    width:100%;
+}
+.start{
+    height: 50vh;
+    width: 50vh;
+}
+.start_page_homeless{
+    height: 350px;
+    width: 370px;
+    margin-left: 80px;
+    margin-bottom: 30px;
+    position: absolute;
+    right: 75px;
+    bottom: 0px;
+}
+.start_page_start_button{
+    position: absolute;
+    margin: 10vh 0 48vh 83vh;
+}
+
+.start_page_explain_button{
+    position: absolute;
+    margin: 26vh 0 48vh 90vh;
+}
+
+.gamestart_text{
+    color: black;
+    position: absolute;
+    right:200px;
+    border:none;
+    background-color: transparent;
+}
+.George{
+    height: 15vh;
+    width: 15vh;
+    position:absolute;
+    top:270px;
+    right: 140px;
+}
+.start-page{position: relative;}

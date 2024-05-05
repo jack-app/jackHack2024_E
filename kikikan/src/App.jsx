@@ -7,6 +7,7 @@ import { GameClear } from "./pages/GameClear/gameClear";
 import { HardGame } from "./pages/HardGame/hardGame";
 import { Level } from "./pages/Level/level";
 import { NormalGame } from "./pages/NormalGame/normalGame";
+import { GameOver } from "./pages/GameOver/gameOver";
 import { Start } from "./pages/Start/start";
 import { Pnf } from "./pnf";
 
@@ -44,7 +45,13 @@ export default function App() {
             path="/clear"
             element={<GameClear />}
           />
+          <Route
+            activeClassName="active"
+            path="/over"
+            element={<GameOver />}
+          />
         </Routes>
+
       </BrowserRouter>
     </div>
   );
