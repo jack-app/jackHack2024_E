@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState,useContext } from 'react';
 import { CreateAudioContext, CreateProcessor, CreateSource } from './audioContext';
 import { RenderMeter, CalculatePeakLevel } from './utils';
 import VibrationImage from './vibrationImage';

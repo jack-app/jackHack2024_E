@@ -1,4 +1,4 @@
-import React, { useRef, useEffect,useState } from 'react';
+import React, { useRef, useEffect,useState, createContext } from 'react';
 import { CreateAudioContext } from './audioContext';
 import { CalculatePeakLevel } from './utils';
 import imageUrl from '../../assets/kan.jpeg'
@@ -17,13 +17,21 @@ const getImage = {
   'benikoji':benikoji
 };
 
+export const isVisibleContext = createContext();
+
 // 振動
 const VibrationImage = ({volumeData,filepath,x,y,size,clearTime}) => {
   const imgRef = useRef(null);
-  const [showModal, setShowModal] = useState(false); 
+  const [showModal, setShowModal] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); 
+
+  //context用
+  const value = {isVisible,setIsVisible};
+
   // click用
   const onModal = () => {
     setShowModal(true);
+    setIsVisible(false);
   }
 
   useEffect(() => {
@@ -54,12 +62,15 @@ const VibrationImage = ({volumeData,filepath,x,y,size,clearTime}) => {
         style={{
           display: 'block',
           position: 'absolute',
-          opacity : 0.4
+          opacity : 0.4,
+          visibility: isVisible ? 'visible' : 'hidden'
         }}
         className='image'
         onClick = {() => {onModal()}}
         />
-        <Modal showFlag={showModal} setShowModal={setShowModal} content="てすと" filepath={filepath} clearTime={clearTime}/>
+        <isVisibleContext.Provider value={value}>
+          <Modal showFlag={showModal} setShowModal={setShowModal} content="てすと" filepath={filepath} clearTime={clearTime}/>
+        </isVisibleContext.Provider>
     </div>
   );
 }
