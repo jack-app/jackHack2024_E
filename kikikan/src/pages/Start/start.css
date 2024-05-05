@@ -1,12 +1,12 @@
-body {
+/* body {
     background-image: url("../../assets/start.jsx.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 18% 20%;
     /* background-attachment: fixed; */
     /* height: 100%; */
-}
-.logo{
+
+.start_page_logo{
     height: 20vh;
     width: 80%;
     margin: 100px 0 90px 110px;

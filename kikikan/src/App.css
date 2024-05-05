@@ -10,6 +10,15 @@
   /* background-size: cover; */
   /* background-color: rgba(241, 204, 1, 0.95); */
   /* background-blend-mode: lighten; */
+  background-image: url("../src/assets/start.jsx.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 18% 20%;
+}
+
+html{
+  margin: 0;
+  padding: 0;
 }
 
 @media screen and (max-width: 992px) {
