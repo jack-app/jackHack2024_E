@@ -12,6 +12,10 @@ const getImage = {
   'test' : imageUrl2
 };
 
+const handleClick1 = () => {
+  window.location.href = "/gameover";
+}
+
 // 振動
 const VibrationImage = ({volumeData,filepath,x,y,size}) => {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -46,8 +50,8 @@ const VibrationImage = ({volumeData,filepath,x,y,size}) => {
           position: 'absolute',
         }}
         className='image'
-        onMouseEnter={() => setShowTooltip(true)}
-        onMouseLeave={() => setShowTooltip(false)}
+        onMouseEnter={() => handleClick1()}
+        // onMouseLeave={() => setShowTooltip(false)}
         />
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { CreateAudioContext, CreateProcessor, CreateSource } from './audioContext';
 import { RenderMeter, CalculatePeakLevel } from './utils';
-import VibrationImage from './vibrationImage';
+import VibrationImage from './vibrationBeni';
 import test from '../../assets/kan.jpeg';
 
 const VolumeMeter = () => {
