@@ -52,6 +52,7 @@ const VibrationBeni = ({volumeData,filepath,x,y,size}) => {
         style={{
           display: 'block',
           position: 'absolute',
+          opacity : 0.4
         }}
         className='image'
         onMouseEnter={() => handleClick1()}

@@ -54,6 +54,7 @@ const VibrationImage = ({volumeData,filepath,x,y,size,clearTime}) => {
         style={{
           display: 'block',
           position: 'absolute',
+          opacity : 0.4
         }}
         className='image'
         onClick = {() => {onModal()}}
