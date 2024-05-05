@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect,useState } from 'react';
 import { CreateAudioContext } from './audioContext';
 import { CalculatePeakLevel } from './utils';
 import imageUrl from '../../assets/kan.jpeg'
 import imageUrl2 from '../../assets/test.png'
 import Hover from './hover'
+import './vibrationImage.css'
 
 // 検索でどうにかする
 const getImage = {
@@ -13,6 +14,7 @@ const getImage = {
 
 // 振動
 const VibrationImage = ({volumeData,filepath,x,y,size}) => {
+  const [showTooltip, setShowTooltip] = useState(false);
   const imgRef = useRef(null);
   useEffect(() => {
     const img = imgRef.current;
@@ -32,10 +34,9 @@ const VibrationImage = ({volumeData,filepath,x,y,size}) => {
   
   },[volumeData, filepath, x, y, size]);
 
-
+  console.log(showTooltip)
   return (
-    <div>
-      <Hover content="nanika">
+    <div className="hover-image-container">
         <img
         ref={imgRef}
         src={getImage[filepath]}
@@ -44,8 +45,10 @@ const VibrationImage = ({volumeData,filepath,x,y,size}) => {
           display: 'block',
           position: 'absolute',
         }}
+        className='image'
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
         />
-      </Hover>
     </div>
   );
 }

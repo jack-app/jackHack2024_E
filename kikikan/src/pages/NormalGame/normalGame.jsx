@@ -57,7 +57,7 @@ export const NormalGame = () => {
       <h1>NormalGame</h1>
       <VolumeMeter />
       {/* <VolumeMeter/> */}
-      <KanConponent x={0} y={10} img={'kan'} size={100}/>
+      {/* <KanConponent x={0} y={10} img={'kan'} size={100}/> */}
       <KanConponent x={20} y={10} img={'test'} size={50}/>
       <input
         type="file"
