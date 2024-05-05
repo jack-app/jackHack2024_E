@@ -88,6 +88,13 @@
   justify-content: flex-end;
 }
 
+.game_page_volume_menter{
+background:white;
+padding: 10px;
+width: 90%;
+margin: 1vw auto;
+}
+
 .game_screen {
   z-index: 0;
   width: 90%;

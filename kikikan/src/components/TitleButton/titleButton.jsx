@@ -1,7 +1,7 @@
 import React from "react";
 import "./titleButton.css";
 
-export const TitleButton = ({ name }) => {
+export const TitleButton = () => {
   const handleClick = () => {
     window.location.href = "/";
   };

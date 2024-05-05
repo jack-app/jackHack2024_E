@@ -46,23 +46,25 @@ const Modal = (props) => {
 
   const toProcess = (filepath) => {
     if (filepath === "bomkan") {
-      if (count <= 3) {
+      if (count < 3) {
         setCount(() => `${Number(count) + 1}`);
         console.log(count);
         closeModel();
-      }else{
-        window.location.href = "/gameover";
+      } else {
+        localStorage.setItem("clearTime", props.clearTime );
+        console.log(props.clearTime);
+        window.location.href = "/clear";
       }
-    } else {
-      window.location.href = "/gameover";
+    } else if (filepath === "lithium") {
+      //timer減少
     }
   };
 
   const toExport = (filepath) => {
-    if (filepath == "lithium") {
+    if (filepath === "bomkan") {
       window.location.href = "/gameover";
-    } else {
-      window.location.href = "/gameover";
+    } else if (filepath === "lithium") {
+      //timer増加
     }
   };
   const closeModel = () => {
