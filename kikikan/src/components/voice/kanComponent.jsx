@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { CreateAudioContext, CreateProcessor, CreateSource } from './audioContext';
 import { RenderMeter, CalculatePeakLevel } from './utils';
-import VibrationBeni from './vibrationBeni';
+import VibrationImage from './vibrationImage';
 import test from '../../assets/kan.jpeg';
+import Modal from './modal'
 
-const BeniComponent = (props) => {
+const KanComponent = (props) => {
   // メータ要素への参照を保持するref
   const meterRef = useRef(null);
   const [volumeData, setVolumeData] = useState(null);
@@ -35,9 +36,9 @@ const BeniComponent = (props) => {
   return (
     <div >
       {/* 音量データが存在する場合のみImageDistortionコンポーネントを表示 */}
-      {volumeData && <VibrationBeni volumeData={volumeData} filepath={props.img} x={props.x} y={props.y} size={props.size}/>}
+      {volumeData && <VibrationImage volumeData={volumeData} filepath={props.img} x={props.x} y={props.y} size={props.size}/>}
     </div>
   )
 }
 
-export default BeniComponent;
+export default KanComponent;

@@ -3,13 +3,17 @@ import { CreateAudioContext } from './audioContext';
 import { CalculatePeakLevel } from './utils';
 import imageUrl from '../../assets/kan.jpeg'
 import imageUrl2 from '../../assets/test.png'
-import Hover from './hover'
-// import './vibrationImage.css'
+import benikoji from '../../assets/benikoji.png'
+import bomkan from '../../assets/bomkan.png'
+import lithium from '../../assets/lithium.png'
 
 // 検索でどうにかする
 const getImage = {
   'kan' : imageUrl,
-  'test' : imageUrl2
+  'test' : imageUrl2,
+  'bomkan' :bomkan,
+  'lithium':lithium,
+  'benikoji':benikoji
 };
 
 const handleClick1 = () => {
@@ -17,7 +21,7 @@ const handleClick1 = () => {
 }
 
 // 振動
-const VibrationImage = ({volumeData,filepath,x,y,size}) => {
+const VibrationBeni = ({volumeData,filepath,x,y,size}) => {
   const [showTooltip, setShowTooltip] = useState(false);
   const imgRef = useRef(null);
   useEffect(() => {
@@ -56,4 +60,4 @@ const VibrationImage = ({volumeData,filepath,x,y,size}) => {
     </div>
   );
 }
-export default VibrationImage
+export default VibrationBeni
