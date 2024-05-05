@@ -61,10 +61,10 @@ export const EasyGame = () => {
         </div>
         <div className="game_screen">
           <div className="easy_game_screen_kan_1">
-            <KanComponent x={3} y={1} img={"bomkan"} size={1} />
+            <KanComponent x={3} y={1} img={"bomkan"} size={1} clearTime={clearTime} />
           </div>
           <div className="easy_game_screen_kan_2">
-            <KanComponent x={3} y={1} img={"bomkan"} size={2} />
+            <KanComponent x={3} y={1} img={"bomkan"} size={2} clearTime={clearTime}/>
           </div>
           <img className="screen" src={stage01} alt="" />
         </div>
