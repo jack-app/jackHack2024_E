@@ -1,12 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import face from "../../assets/face.png";
 import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
 import stage01 from "../../assets/stage01.jpg";
 import "./easyGame.css";
-import Timer from "../../components/Timer/timer";
+import { MyTimer } from "../../components/Timer/timer";
 
 export const EasyGame = () => {
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 60); // 10秒のタイマー
+
+  // タイマー終了時に呼ばれる関数
+  const handleTimeUp = () => {
+    window.location.href = "/over";
+  };
+
   return (
     <div className="easy_game_wrapper">
       <div className="logo"></div>
@@ -25,17 +33,20 @@ export const EasyGame = () => {
                 <div className="bomkan_text">BOMKAN</div>
               </div>
               <div className="richiumkan_context">
-                <img className="game_page_richiumkan_image" src={lithium} alt="" />
+                <img
+                  className="game_page_richiumkan_image"
+                  src={lithium}
+                  alt=""
+                />
                 <div className="richiumkan_text">LITHIUMMKAN</div>
               </div>
             </div>
             <div className="game_page_timer">
-              <Timer />
+              <MyTimer expiryTimestamp={time} onTimeUp={handleTimeUp} />
             </div>
           </div>
         </div>
         <div className="game_screen">
-          
           <img className="screen" src={stage01} alt="" />
         </div>
       </div>
