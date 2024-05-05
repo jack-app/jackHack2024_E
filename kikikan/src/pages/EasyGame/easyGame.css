@@ -12,9 +12,9 @@
 
 .game_detail {
   width: 90%;
-  margin: 10px auto;
+  margin: auto;
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-around;
   padding: 0;
 }
 
@@ -55,9 +55,12 @@
 }
 
 .game_page_bomkan_image {
-  width: 100px;
+  width: 50px;
   height: 100px;
+  text-align: center;
+  margin-left: 10px;
 }
+
 .bomkan_text {
   color: black;
 }
@@ -65,8 +68,9 @@
   margin-top: 3vw;
 }
 .game_page_richiumkan_image {
-  width: 100px;
+  width: 50px;
   height: 100px;
+  margin-left: 30px;
 }
 
 .richiumkan_text {
@@ -77,6 +81,7 @@
   margin-top: 3vw;
   justify-content: flex-end;
 }
+
 .game_screen {
   width: 90%;
   margin: auto;

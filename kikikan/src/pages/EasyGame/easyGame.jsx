@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import face from "../../assets/face.png";
+import bomkan from "../../assets/bomkan.png";
+import lithium from "../../assets/lithium.png";
 import stage01 from "../../assets/stage01.jpg";
 import "./easyGame.css";
 import Timer from "../../components/Timer/timer";
@@ -19,12 +21,12 @@ export const EasyGame = () => {
 
             <div className="finding_kan_context">
               <div className="bomkan_context">
-                <img className="game_page_bomkan_image" src="" alt="" />
+                <img className="game_page_bomkan_image" src={bomkan} alt="" />
                 <div className="bomkan_text">BOMKAN</div>
               </div>
               <div className="richiumkan_context">
-                <img className="game_page_richiumkan_image" src="" alt="" />
-                <div className="richiumkan_text">RICHIUMKAN</div>
+                <img className="game_page_richiumkan_image" src={lithium} alt="" />
+                <div className="richiumkan_text">LITHIUMMKAN</div>
               </div>
             </div>
             <div className="game_page_timer">
@@ -33,6 +35,7 @@ export const EasyGame = () => {
           </div>
         </div>
         <div className="game_screen">
+          
           <img className="screen" src={stage01} alt="" />
         </div>
       </div>
