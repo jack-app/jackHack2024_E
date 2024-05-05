@@ -8,6 +8,7 @@ import "./easyGame.css";
 import KanComponent from "../../components/voice/kanComponent";
 import BeniComponent from "../../components/voice/beniComponent";
 import { MyTimer } from "../../components/Timer/timer";
+import { TimerProvider } from '../../components/Timer/timerContext';
 
 export const EasyGame = () => {
   const time = new Date();
@@ -18,6 +19,7 @@ export const EasyGame = () => {
   const handleTimeUp = () => {
     window.location.href = "/over";
   };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setClearTime((clearTime) => clearTime + 1);
@@ -52,11 +54,16 @@ export const EasyGame = () => {
                 <div className="richiumkan_text">LITHIUMMKAN</div>
               </div>
             </div>
-            <div className="game_page_timer">
+            {/* <div className="game_page_timer">
               <MyTimer expiryTimestamp={time} onTimeUp={handleTimeUp} />
-            </div>
+            </div> */}
+            <TimerProvider>
+              <MyTimer expiryTimestamp={Date.now() + 60} onTimeUp={() => handleTimeUp} />
+              {/* <AnotherComponent /> */}
+            </TimerProvider>
           </div>
         </div>
+        <TimerProvider>
         <div className="game_screen">
           
           <div className="easy_game_screen_kan_1">
@@ -98,8 +105,10 @@ export const EasyGame = () => {
           <div className="easy_game_screen_kan_13">
             <KanComponent x={3} y={1} img={"lithium"} size={10} />
           </div>
+          </div>
+        </TimerProvider>
           <img className="screen" src={stage01} alt="" />
-        </div>
+
       </div>
     </div>
   );

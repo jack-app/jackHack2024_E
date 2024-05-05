@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useContext } from "react";
 import "./modal.css";
 import imageUrl from "../../assets/kan.jpeg";
 import imageUrl2 from "../../assets/test.png";
@@ -6,6 +6,7 @@ import benikoji from "../../assets/benikoji.png";
 import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
 import hatena from "../../assets/hatena.png"
+import {TimerContext}  from '../Timer/timerContext.jsx';
 
 // 検索でどうにかする
 const getImage = {
@@ -44,6 +45,8 @@ const useLocalStorage = (key, initValue) => {
 const Modal = (props) => {
   const [count, setCount] = useLocalStorage("counter", "0");
 
+  const { addTime } = useContext(TimerContext);
+
   const toProcess = (filepath) => {
     if (filepath === "bomkan") {
       if (count < 3) {
@@ -65,6 +68,7 @@ const Modal = (props) => {
       window.location.href = "/gameover";
     } else if (filepath === "lithium") {
       //timer増加
+      addTime(10)
     }
   };
   const closeModel = () => {
