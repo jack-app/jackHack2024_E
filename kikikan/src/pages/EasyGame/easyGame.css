@@ -1,0 +1,93 @@
+.easy_game_wrapper {
+  margin: 1vw;
+  padding: 1vw;
+  font-family: var(--font-japanese);
+  color: white;
+}
+
+.game_context {
+  background-color: black;
+  width: 100%;
+}
+
+.game_detail {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.game_message {
+  display: flex;
+}
+
+.game_page_face {
+  margin-top: 5vw;
+  width: 125px;
+  height: 150px;
+}
+
+.game__message_text {
+  font-size: 2vw;
+  color: white;
+  margin: 2vw;
+  margin-top: 5vw;
+  padding: 0;
+}
+
+.game_page_level_text {
+  color: white;
+  font-size: 3vw;
+  margin: 2vw;
+}
+
+.finding_kan_context {
+  background-color: white;
+  margin: 3vw;
+  width: 25vw;
+  display: flex;
+  border-radius: 50px;
+}
+
+.bomkan_context {
+  margin: 3vw;
+}
+
+.game_page_bomkan_image {
+  width: 50px;
+  height: 100px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.bomkan_text {
+  color: black;
+}
+.richiumkan_context {
+  margin-top: 3vw;
+}
+.game_page_richiumkan_image {
+  width: 50px;
+  height: 100px;
+  margin-left: 30px;
+}
+
+.richiumkan_text {
+  color: black;
+}
+
+.game_page_timer {
+  margin-top: 3vw;
+  justify-content: flex-end;
+}
+
+.game_screen {
+  width: 90%;
+  margin: auto;
+}
+.screen {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 5vw;
+}
