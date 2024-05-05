@@ -2,7 +2,7 @@ import React from "react";
 import { useTimer } from "react-timer-hook";
 import "./timer.css";
 
-export function MyTimer({ expiryTimestamp, onTimeUp }) {
+export function MyTimer({ expiryTimestamp, onTimeUp ,addTenSeconds}) {
   const { seconds, minutes } = useTimer({
     expiryTimestamp,
     onExpire: onTimeUp, 
@@ -14,6 +14,7 @@ export function MyTimer({ expiryTimestamp, onTimeUp }) {
       <div className="timer_number">
         <span>{minutes}</span>:<span>{seconds}</span>
       </div>
+      <button onClick={addTenSeconds}>+10 Seconds</button>
     </div>
   );
 }

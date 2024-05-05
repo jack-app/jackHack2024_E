@@ -9,28 +9,61 @@ import KanComponent from "../../components/voice/kanComponent";
 import BeniComponent from "../../components/voice/beniComponent";
 import { MyTimer } from "../../components/Timer/timer";
 
-export const TimerCount = createContext()
+// export const TimerCount = createContext()
 
 export const EasyGame = () => {
+  // 1分のタイマー時間を設定
+const initialTimerDuration = 60; // 1分 = 60秒
+const [timerDuration, setTimerDuration] = useState(initialTimerDuration); // タイマー時間を管理する状態変数
+
+// タイマーの終了時刻を計算して設定
+const [expiryTimestamp, setExpiryTimestamp] = useState(() => {
   const time = new Date();
-  const value = {
-    time
-  }
-  time.setSeconds(time.getSeconds() + 60); // 1分のタイマー
-  const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
+  time.setSeconds(time.getSeconds() + timerDuration);
+  return time;
+});
 
-  // タイマー終了時に呼ばれる関数
-  const handleTimeUp = () => {
-    window.location.href = "/over";
-  };
+// タイマー終了時に呼ばれる関数
+const handleTimeUp = () => {
+  window.location.href = "/over";
+};
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setClearTime((clearTime) => clearTime + 1);
-    }, 1000);
+// タイマー時間を10秒増やす関数
+const addTenSeconds = () => {
+  setTimerDuration((prevTimerDuration) => prevTimerDuration + 10); // タイマー時間を10秒増やす
+  setExpiryTimestamp((prevExpiryTimestamp) => {
+    const newExpiryTimestamp = new Date(prevExpiryTimestamp);
+    newExpiryTimestamp.setSeconds(newExpiryTimestamp.getSeconds() + 10);
+    return newExpiryTimestamp;
+  });
+};
 
-    return () => clearInterval(interval);
-  }, []);
+useEffect(() => {
+  const interval = setInterval(() => {
+    setTimerDuration((prevTimerDuration) => prevTimerDuration - 1);
+  }, 1000);
+
+  return () => clearInterval(interval);
+}, []);
+  // const time = new Date();
+  // const value = {
+  //   time
+  // }
+  // time.setSeconds(time.getSeconds() + 60); // 1分のタイマー
+  // const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
+
+  // // タイマー終了時に呼ばれる関数
+  // const handleTimeUp = () => {
+  //   window.location.href = "/over";
+  // };
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setClearTime((clearTime) => clearTime + 1);
+  //   }, 1000);
+
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <div className="easy_game_wrapper">
@@ -59,7 +92,8 @@ export const EasyGame = () => {
               </div>
             </div>
             <div className="game_page_timer">
-              <MyTimer expiryTimestamp={time} onTimeUp={handleTimeUp} />
+              {/* <MyTimer expiryTimestamp={time} onTimeUp={handleTimeUp} /> */}
+              <MyTimer expiryTimestamp={expiryTimestamp} onTimeUp={handleTimeUp} addTenSeconds={addTenSeconds}/>
             </div>
           </div>
         </div>
