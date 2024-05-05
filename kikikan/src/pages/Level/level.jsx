@@ -1,14 +1,13 @@
-import { NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import { LevelButton } from "../../components/LevelButton/levelButton";
 import face from "../../assets/face.png";
-import stage03 from "../../assets/stage03.jpg";
 import "./../../App.css";
 import "./level.css";
 
 export const Level = () => {
   const [name, setName] = useState("名無し");
-  console.log(name);
+  localStorage.setItem("name", name);
+  localStorage.setItem("level", "初級");
 
   return (
     <div className="wrapper">

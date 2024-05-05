@@ -10,15 +10,13 @@ export const StartButton = ({ name }) => {
 
   //クリックして別の場所に移るためのもの
   const handleClick = () => {
-    if (name === "初級") {
-      window.location.href = "/easygame";
-    }
+      window.location.href = "/level";
   };
   return (
     <div className="start_button_wrapper">
-      <div className="start_button_text" onClick={handleClick}>
+      <button className="start_button_text" onClick={handleClick}>
         {name}
-      </div>
+      </button>
     </div>
   );
 };
