@@ -4,12 +4,13 @@ import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
 import stage01 from "../../assets/stage01.jpg";
 import "./easyGame.css";
+import VolumeMeter from "../../components/voice/volumeMeter";
 import KanComponent from "../../components/voice/kanComponent";
 import { MyTimer } from "../../components/Timer/timer";
 
 export const EasyGame = () => {
   const time = new Date();
-  time.setSeconds(time.getSeconds() + 60); // 10秒のタイマー
+  time.setSeconds(time.getSeconds() + 6000000); // 10秒のタイマー
   const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
 
   // タイマー終了時に呼ばれる関数
@@ -33,7 +34,7 @@ export const EasyGame = () => {
             <div className="text_context">
               <div className="game__message_text">危機感もてよ！</div>
               <div className="game_page_level_text">初級</div>
-              <div className="game_page_bom_text">BOMKAN 残り 2個</div>
+              <div className="game_page_bom_text">BOMKAN 残り 3個</div>
             </div>
 
             <div className="finding_kan_context">
@@ -55,8 +56,10 @@ export const EasyGame = () => {
             </div>
           </div>
         </div>
+        <div className="game_page_volume_menter">
+          <VolumeMeter />
+        </div>
         <div className="game_screen">
-          
           <div className="easy_game_screen_kan_1">
             <KanComponent x={3} y={1} img={"bomkan"} size={1} />
           </div>

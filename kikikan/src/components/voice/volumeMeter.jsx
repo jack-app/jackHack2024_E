@@ -35,7 +35,7 @@ const VolumeMeter = () => {
   return (
     <div>
       <div style={{ border: '1px solid black', width: '500px' }}>
-        <div ref={meterRef} style={{ height: '10px', background: 'black', transition: 'width .5s', width: '0%' }} />
+        <div ref={meterRef} style={{ height: '10px', background: 'white', transition: 'width .5s', width: '0%' }} />
       </div>
     </div>
   )
