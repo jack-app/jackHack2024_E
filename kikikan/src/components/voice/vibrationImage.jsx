@@ -18,7 +18,7 @@ const getImage = {
 };
 
 // 振動
-const VibrationImage = ({volumeData,filepath,x,y,size}) => {
+const VibrationImage = ({volumeData,filepath,x,y,size,clearTime}) => {
   const imgRef = useRef(null);
   const [showModal, setShowModal] = useState(false); 
   // click用
@@ -58,7 +58,7 @@ const VibrationImage = ({volumeData,filepath,x,y,size}) => {
         className='image'
         onClick = {() => {onModal()}}
         />
-        <Modal showFlag={showModal} setShowModal={setShowModal} content="てすと" filepath={filepath}/>
+        <Modal showFlag={showModal} setShowModal={setShowModal} content="てすと" filepath={filepath} clearTime={clearTime}/>
     </div>
   );
 }
