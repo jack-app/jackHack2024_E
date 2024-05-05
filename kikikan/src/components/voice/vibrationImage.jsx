@@ -54,11 +54,12 @@ const VibrationImage = ({volumeData,filepath,x,y,size}) => {
         style={{
           display: 'block',
           position: 'absolute',
+          opacity : 0.4
         }}
         className='image'
         onClick = {() => {onModal()}}
         />
-        <Modal showFlag={showModal} setShowModal={setShowModal} content="てすと" filepath={filepath}/>
+        <Modal showFlag={showModal} setShowModal={setShowModal} filepath={filepath}/>
     </div>
   );
 }

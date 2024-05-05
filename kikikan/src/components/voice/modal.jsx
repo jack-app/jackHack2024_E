@@ -5,6 +5,7 @@ import imageUrl2 from "../../assets/test.png";
 import benikoji from "../../assets/benikoji.png";
 import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
+import hatena from "../../assets/hatena.png"
 
 // 検索でどうにかする
 const getImage = {
@@ -77,7 +78,7 @@ const Modal = (props) => {
               別の缶を見る ↩︎
             </button>
             <div className="modal-image">
-              <img src={getImage[props.filepath]} alt="" />
+              <img src={hatena} alt="" />
             </div>
             <button
               className="modal_choice_button"
