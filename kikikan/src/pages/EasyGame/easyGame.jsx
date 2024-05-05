@@ -9,7 +9,7 @@ import KanComponent from "../../components/voice/kanComponent";
 import BeniComponent from "../../components/voice/beniComponent";
 import { MyTimer } from "../../components/Timer/timer";
 
-// export const TimerCount = createContext()
+export const TimerCount = createContext()
 
 export const EasyGame = () => {
   // 1分のタイマー時間を設定
@@ -32,8 +32,7 @@ const handleTimeUp = () => {
 const addTenSeconds = () => {
   setTimerDuration((prevTimerDuration) => prevTimerDuration + 10); // タイマー時間を10秒増やす
   setExpiryTimestamp((prevExpiryTimestamp) => {
-    const newExpiryTimestamp = new Date(prevExpiryTimestamp);
-    newExpiryTimestamp.setSeconds(newExpiryTimestamp.getSeconds() + 10);
+    const newExpiryTimestamp = new Date(prevExpiryTimestamp.getTime() + 10000); // 10秒(10000ミリ秒)を追加
     return newExpiryTimestamp;
   });
 };
@@ -75,6 +74,7 @@ useEffect(() => {
               <div className="game__message_text">危機感もてよ！</div>
               <div className="game_page_level_text">初級</div>
               <div className="game_page_bom_text">BOMKAN 残り 2個</div>
+              <button onClick={() =>addTenSeconds}>+10 Seconds</button>
             </div>
 
             <div className="finding_kan_context">
@@ -93,7 +93,7 @@ useEffect(() => {
             </div>
             <div className="game_page_timer">
               {/* <MyTimer expiryTimestamp={time} onTimeUp={handleTimeUp} /> */}
-              <MyTimer expiryTimestamp={expiryTimestamp} onTimeUp={handleTimeUp} addTenSeconds={addTenSeconds}/>
+              <MyTimer expiryTimestamp={expiryTimestamp} onTimeUp={handleTimeUp} />
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useContext} from "react";
 import "./modal.css";
 import imageUrl from "../../assets/kan.jpeg";
 import imageUrl2 from "../../assets/test.png";
@@ -6,6 +6,7 @@ import benikoji from "../../assets/benikoji.png";
 import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
 import hatena from "../../assets/hatena.png"
+import { isVisibleContext } from "./vibrationImage";
 
 // 検索でどうにかする
 const getImage = {
@@ -44,9 +45,13 @@ const useLocalStorage = (key, initValue) => {
 const Modal = (props) => {
   const [count, setCount] = useLocalStorage("counter", "0");
 
+  // context 用
+  const {isVisible, setIsVisible} = useContext(isVisibleContext);
+  
   const toProcess = (filepath) => {
     if (filepath === "bomkan") {
       if (count < 3) {
+        setIsVisible(true);
         setCount(() => `${Number(count) + 1}`);
         console.log(count);
         closeModel();
@@ -57,6 +62,8 @@ const Modal = (props) => {
       }
     } else if (filepath === "lithium") {
       //timer減少
+      // setIsVisible(true);
+      closeModel();
     }
   };
 
@@ -65,18 +72,26 @@ const Modal = (props) => {
       window.location.href = "/gameover";
     } else if (filepath === "lithium") {
       //timer増加
+      // setIsVisible(true);
+      closeModel();
     }
   };
   const closeModel = () => {
     props.setShowModal(false);
   };
+
+  const BackModel = () => {
+    setIsVisible(true);
+    props.setShowModal(false);
+  };
+
   return (
     <div>
       {props.showFlag ? (
         <div className="overlay">
           <div className="modal-content">
             {/* <p>{props.content}</p> */}
-            <button className="modal_back_button" onClick={closeModel}>
+            <button className="modal_back_button" onClick={BackModel}>
               別の缶を見る ↩︎
             </button>
             <div className="modal-image">
