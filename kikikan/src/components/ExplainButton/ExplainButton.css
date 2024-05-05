@@ -1,4 +1,6 @@
 .start_button_explain_text{
     font-size: 5vw;
-    font-family: var(--font-japanese)
+    font-family: var(--font-japanese);
+    background:transparent;
+    border: none;
 }

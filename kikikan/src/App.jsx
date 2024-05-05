@@ -47,7 +47,7 @@ export default function App() {
           />
           <Route
             activeClassName="active"
-            path="/over"
+            path="/gameover"
             element={<GameOver />}
           />
         </Routes>

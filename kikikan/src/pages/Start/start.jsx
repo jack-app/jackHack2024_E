@@ -11,10 +11,9 @@ import "./start.css";
 
 export const Start = () => {
   return (
-    <div className="start-page-context">
-      <img src={logo} alt="" className="logo" />
-      {/* <img src={city} className="city"/> */}
-      {/* <img src={start} className="start"/> */}
+    <body className="start_page_context">
+      <img src={logo} alt="" className="start_page_logo" />
+
       <img src={toguro} alt="" className="toguro" />
       <div className="start_homeless">
         {" "}
@@ -28,7 +27,6 @@ export const Start = () => {
       </div>
       <img src={George} alt="" className="George" />
 
-      <NavLink to="/explain">説明</NavLink>
-    </div>
+    </body>
   );
 };
