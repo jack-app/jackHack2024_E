@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import face from "../../assets/face.png";
 import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
@@ -9,15 +9,21 @@ import KanComponent from "../../components/voice/kanComponent";
 import BeniComponent from "../../components/voice/beniComponent";
 import { MyTimer } from "../../components/Timer/timer";
 
+export const TimerCount = createContext()
+
 export const EasyGame = () => {
   const time = new Date();
-  time.setSeconds(time.getSeconds() + 60); // 10秒のタイマー
+  const value = {
+    time
+  }
+  time.setSeconds(time.getSeconds() + 60); // 1分のタイマー
   const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
 
   // タイマー終了時に呼ばれる関数
   const handleTimeUp = () => {
     window.location.href = "/over";
   };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setClearTime((clearTime) => clearTime + 1);
