@@ -11,7 +11,7 @@ import { MyTimer } from "../../components/Timer/timer";
 
 export const EasyGame = () => {
   const time = new Date();
-  time.setSeconds(time.getSeconds() + 60); // 10秒のタイマー
+  time.setSeconds(time.getSeconds() + 600000); // 10秒のタイマー
   const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
 
   // タイマー終了時に呼ばれる関数
