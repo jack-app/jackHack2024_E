@@ -50,6 +50,8 @@ const Modal = (props) => {
         console.log(count);
         closeModel();
       } else {
+        const clearTime = props.gameTimer;
+        localStorage.setItem("clearTime", clearTime );
         window.location.href = "/clear";
       }
     } else if (filepath === "lithium") {
