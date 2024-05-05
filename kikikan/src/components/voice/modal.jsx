@@ -64,15 +64,17 @@ const Modal = (props) => {
   return (
     <div>
       {props.showFlag ? (
-        <div id="overlay" className='overlay'>
-          <div id="modalContent" className='modal-content'>
-              <p>{props.content}</p>
+        <div className='overlay'>
+          <div className='modal-content'>
+              {/* <p>{props.content}</p> */}
+              <button onClick={closeModel}>別の缶を見る</button>
+              <div className='modal-image'>
               <img 
                 src={getImage[props.filepath]}
               />
+              </div>
               <button onClick={() => toProcess(props.filepath)}>処理へ</button>
               <button onClick={() => toExport(props.filepath)}>輸出へ</button>
-              <button onClick={closeModel}>別の缶を見る</button>
           </div>
         </div>
       ) : (

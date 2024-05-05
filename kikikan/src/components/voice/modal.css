@@ -17,3 +17,8 @@
   align-items: center;
   justify-content: center;
 }
+.modal-image img{
+  object-fit: scale-down;
+  height: 30vw;
+  margin:10%;
+}
