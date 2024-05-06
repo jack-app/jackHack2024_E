@@ -151,25 +151,25 @@ export const NormalGame = () => {
             <KanComponent2 x={3} y={1} img={"lithium"} size={6} clearTime={clearTime}/>
           </div>
           <div className="easy_game_screen_kan_14">
-            <BeniComponent x={3} y={1} img={"benikoji"} size={6} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={6} />
           </div>
           <div className="easy_game_screen_kan_15">
-            <BeniComponent x={3} y={1} img={"benikoji"} size={8} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={8} />
           </div>
           <div className="easy_game_screen_kan_16">
-            <BeniComponent x={3} y={1} img={"benikoji"} size={6} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={6} />
           </div>
           <div className="easy_game_screen_kan_17">
-            <BeniComponent x={3} y={1} img={"benikoji"} size={5} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={5} />
           </div>
           <div className="easy_game_screen_kan_18">
-            <BeniComponent x={3} y={1} img={"benikoji"} size={6} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={6}/>
           </div>
           <div className="easy_game_screen_kan_19">
-            <BeniComponent x={3} y={1} img={"benikoji"} size={8} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={8} />
           </div>
           <div className="easy_game_screen_kan_20">
-            <BeniComponent x={3} y={1} img={"benikoji"} size={8} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={8} />
           </div>
           <img className="screen" src={stage02} alt="" />
         </div>
