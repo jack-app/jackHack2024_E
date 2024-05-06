@@ -1,31 +1,73 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , createContext } from "react";
 import face from "../../assets/face.png";
 import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
 import stage02 from "../../assets/stage02.jpg";
+import benikoji from "../../assets/benikoji.png";
 import "./normalGame.css";
 import VolumeMeter from "../../components/voice/volumeMeter";
-import KanComponent from "../../components/voice/kanComponent";
-import { MyTimer } from "../../components/Timer/timer";
+import KanComponent2 from "../../components/voice/kanComponent2";
+// import { MyTimer } from "../../components/Timer/timer";
+import { useTimer } from "react-timer-hook";
+import BeniComponent from "../../components/voice/beniComponent";
+export const TimerContext = createContext()
 
 export const NormalGame = () => {
-  const time = new Date();
-  time.setSeconds(time.getSeconds() + 6000000); // 10秒のタイマー
   const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
 
   // タイマー終了時に呼ばれる関数
   const handleTimeUp = () => {
     window.location.href = "/over";
   };
+
+  // timer component 移住
+  const [expiryTimestamp, setExpiryTimestamp] = useState(new Date().getTime() + 60000); // 1時間後に設定
+
+  const { seconds, minutes ,restart} = useTimer({
+    expiryTimestamp,
+    onExpire: handleTimeUp, 
+  });
+
+  const handleAddTime = () => {
+    const newExpiryTimestamp = expiryTimestamp + 10000;
+    setExpiryTimestamp(newExpiryTimestamp); // 10秒追加
+    restart(newExpiryTimestamp);
+    console.log(seconds) 
+  };
+
+  const handleDecTime = () => {
+    const newExpiryTimestamp = expiryTimestamp - 10000;
+    setExpiryTimestamp(newExpiryTimestamp); // 10秒引く
+    restart(newExpiryTimestamp);
+    console.log(seconds) 
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setClearTime((clearTime) => clearTime + 1);
+      console.log(clearTime)
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
+  // const time = new Date();
+  // time.setSeconds(time.getSeconds() + 6000000); // 10秒のタイマー
+  // const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
+
+  // // タイマー終了時に呼ばれる関数
+  // const handleTimeUp = () => {
+  //   window.location.href = "/over";
+  // };
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setClearTime((clearTime) => clearTime + 1);
+  //   }, 1000);
+
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
+    <TimerContext.Provider value={{ handleAddTime,handleDecTime }}>
     <div className="easy_game_wrapper">
       <div className="game_context">
         <div className="game_detail">
@@ -52,7 +94,16 @@ export const NormalGame = () => {
               </div>
             </div>
             <div className="game_page_timer">
-              <MyTimer expiryTimestamp={time} onTimeUp={handleTimeUp} />
+              {/* <MyTimer expiryTimestamp={time} onTimeUp={handleTimeUp} /> */}
+              <div className="game_page_timer">
+              <div className="timer_context">
+                <div className="timer_text">TIMER</div>
+                  <div className="timer_number">
+                    <span>{minutes}</span>:<span>{seconds}</span>
+                  </div>
+                </div>
+              </div>
+          
             </div>
           </div>
         </div>
@@ -61,14 +112,18 @@ export const NormalGame = () => {
         </div>
         <div className="game_screen">
           <div className="easy_game_screen_kan_1">
-            <KanComponent x={3} y={1} img={"bomkan"} size={1} />
+            <KanComponent2 x={3} y={1} img={"lithium"} size={6} clearTime={clearTime}/>
           </div>
           <div className="easy_game_screen_kan_2">
-            <KanComponent x={3} y={1} img={"bomkan"} size={2} />
+            <KanComponent2 x={3} y={1} img={"lithium"} size={6} clearTime={clearTime}/>
+          </div>
+          <div className="easy_game_screen_kan_8">
+            <BeniComponent x={3} y={1} img={"benikoji"} size={3} />
           </div>
           <img className="screen" src={stage02} alt="" />
         </div>
       </div>
     </div>
+    </TimerContext.Provider>
   );
 };

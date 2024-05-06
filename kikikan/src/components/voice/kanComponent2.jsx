@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useState,createContext,useContext } from 'react';
 import { CreateAudioContext, CreateProcessor, CreateSource } from './audioContext';
 import { RenderMeter, CalculatePeakLevel } from './utils';
-import VibrationImage from './vibrationImage';
+import VibrationImage2 from './vibrationImage2';
 import test from '../../assets/kan.jpeg';
 import Modal from './modal'
-import { TimerContext } from '../../pages/EasyGame/easyGame';
+import { TimerContext } from '../../pages/NormalGame/normalGame';
 // import { TimerContext2 } from '../../pages/NormalGame/normalGame';
 
 const KanComponent = (props) => {
@@ -15,12 +15,11 @@ const KanComponent = (props) => {
 
   useEffect(() => {
     const startAudio = async () => {
-      const { ctx, media } = await CreateAudioContext();
-
+      const {ctx, media} = await CreateAudioContext();
+      
       // eventhandler
       const onProcess = (event) => {
         const data = event.inputBuffer.getChannelData(0);
-
         setVolumeData(data)
       };
 
@@ -39,11 +38,10 @@ const KanComponent = (props) => {
   
     <div >
       {/* 音量データが存在する場合のみImageDistortionコンポーネントを表示 */}
-      {volumeData && <VibrationImage volumeData={volumeData} filepath={props.img} x={props.x} y={props.y} size={props.size} clearTime={props.clearTime} level={props.level}/>}
+      {volumeData && <VibrationImage2 volumeData={volumeData} filepath={props.img} x={props.x} y={props.y} size={props.size} clearTime={props.clearTime} level={props.level}/>}
     </div>
     </TimerContext.Provider>
   )
-
 };
 
 export default KanComponent;

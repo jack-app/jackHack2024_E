@@ -1,13 +1,13 @@
-import React, { useCallback, useState, useContext } from "react";
+import React, { useCallback, useState, useContext} from "react";
 import "./modal.css";
 import imageUrl from "../../assets/kan.jpeg";
 import imageUrl2 from "../../assets/test.png";
 import benikoji from "../../assets/benikoji.png";
 import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
-import hatena from "../../assets/hatena.png";
-import { isVisibleContext } from "./vibrationImage";
-import { TimerContext } from "../../pages/EasyGame/easyGame";
+import hatena from "../../assets/hatena.png"
+import { isVisibleContext } from "./vibrationImage3";
+import { TimerContext } from "../../pages/HardGame/hardGame";
 // 検索でどうにかする
 const getImage = {
   kan: imageUrl,
@@ -43,24 +43,24 @@ const useLocalStorage = (key, initValue) => {
 };
 
 const Modal = (props) => {
-  // context 用
+  const [count, setCount] = useLocalStorage("counter", "0");
 
+  // context 用
   const {isVisible, setIsVisible} = useContext(isVisibleContext);
   const { handleAddTime,handleDecTime } = useContext(TimerContext);
   // const {handleAddTime2,handleDecTime2} = useContext(TimerContext2);
 
   const toProcess = (filepath) => {
     if (filepath === "bomkan") {
-      let bomCount = Number(localStorage.getItem("bomCount"));
-      bomCount--;
-      localStorage.setItem("bomCount", bomCount);
-      // localStorageの値が変更されたことを通知するイベントを発生させる
-      window.dispatchEvent(new Event("storage"));
-
-      if (bomCount <= 0) {
-        window.location.href = "/clear";
-      } else {
+      if (count < 3) {
+        // setIsVisible(true);
+        setCount(() => `${Number(count) + 1}`);
+        console.log(count);
         closeModel();
+      } else {
+        localStorage.setItem("clearTime", props.clearTime );
+        console.log(props.clearTime);
+        window.location.href = "/clear";
       }
     } else if (filepath === "lithium") {
       //timer減少
