@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import face from "../../assets/face.png";
 import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
@@ -7,17 +7,41 @@ import benikoji from "../../assets/benikoji.png";
 import "./easyGame.css";
 import KanComponent from "../../components/voice/kanComponent";
 import BeniComponent from "../../components/voice/beniComponent";
-import { MyTimer } from "../../components/Timer/timer";
+// import { MyTimer } from "../../components/Timer/timer";
+import { useTimer } from "react-timer-hook";
+
+export const TimerContext = createContext()
 
 export const EasyGame = () => {
-  const time = new Date();
-  time.setSeconds(time.getSeconds() + 600000); // 10秒のタイマー
   const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
 
   // タイマー終了時に呼ばれる関数
   const handleTimeUp = () => {
     window.location.href = "/over";
   };
+
+  // timer component 移住
+  const [expiryTimestamp, setExpiryTimestamp] = useState(new Date().getTime() + 60000); // 1時間後に設定
+
+  const { seconds, minutes ,restart} = useTimer({
+    expiryTimestamp,
+    onExpire: handleTimeUp, 
+  });
+
+  const handleAddTime = () => {
+    const newExpiryTimestamp = expiryTimestamp + 10000;
+    setExpiryTimestamp(newExpiryTimestamp); // 10秒追加
+    restart(newExpiryTimestamp);
+    console.log(seconds) 
+  };
+
+  const handleDecTime = () => {
+    const newExpiryTimestamp = expiryTimestamp - 10000;
+    setExpiryTimestamp(newExpiryTimestamp); // 10秒引く
+    restart(newExpiryTimestamp);
+    console.log(seconds) 
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setClearTime((clearTime) => clearTime + 1);
@@ -27,6 +51,7 @@ export const EasyGame = () => {
   }, []);
 
   return (
+    <TimerContext.Provider value={{ handleAddTime,handleDecTime }}>
     <div className="easy_game_wrapper">
       <div className="game_context">
         <div className="game_detail">
@@ -36,6 +61,7 @@ export const EasyGame = () => {
               <div className="game__message_text">危機感もてよ！</div>
               <div className="game_page_level_text">初級</div>
               <div className="game_page_bom_text">BOMKAN 残り 2個</div>
+              {/* <button onClick={() =>addTenSeconds}>+10 Seconds</button> */}
             </div>
 
             <div className="finding_kan_context">
@@ -53,7 +79,12 @@ export const EasyGame = () => {
               </div>
             </div>
             <div className="game_page_timer">
-              <MyTimer expiryTimestamp={time} onTimeUp={handleTimeUp} />
+              <div className="timer_context">
+                <div className="timer_text">TIMER</div>
+                  <div className="timer_number">
+                    <span>{minutes}</span>:<span>{seconds}</span>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
@@ -102,6 +133,7 @@ export const EasyGame = () => {
         </div>
       </div>
     </div>
+    </TimerContext.Provider>
   );
 };
 

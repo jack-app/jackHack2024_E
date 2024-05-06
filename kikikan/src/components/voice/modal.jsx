@@ -7,6 +7,7 @@ import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
 import hatena from "../../assets/hatena.png"
 import { isVisibleContext } from "./vibrationImage";
+import { TimerContext } from "../../pages/EasyGame/easyGame";
 
 // 検索でどうにかする
 const getImage = {
@@ -47,11 +48,12 @@ const Modal = (props) => {
 
   // context 用
   const {isVisible, setIsVisible} = useContext(isVisibleContext);
-  
+  const { handleAddTime,handleDecTime } = useContext(TimerContext);
+
   const toProcess = (filepath) => {
     if (filepath === "bomkan") {
       if (count < 3) {
-        setIsVisible(true);
+        // setIsVisible(true);
         setCount(() => `${Number(count) + 1}`);
         console.log(count);
         closeModel();
@@ -62,7 +64,7 @@ const Modal = (props) => {
       }
     } else if (filepath === "lithium") {
       //timer減少
-      // setIsVisible(true);
+      handleDecTime()
       closeModel();
     }
   };
@@ -72,7 +74,7 @@ const Modal = (props) => {
       window.location.href = "/gameover";
     } else if (filepath === "lithium") {
       //timer増加
-      // setIsVisible(true);
+      handleAddTime()
       closeModel();
     }
   };
@@ -90,7 +92,6 @@ const Modal = (props) => {
       {props.showFlag ? (
         <div className="overlay">
           <div className="modal-content">
-            {/* <p>{props.content}</p> */}
             <button className="modal_back_button" onClick={BackModel}>
               別の缶を見る ↩︎
             </button>
