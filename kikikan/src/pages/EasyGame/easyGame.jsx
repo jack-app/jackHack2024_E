@@ -13,11 +13,6 @@ import { useTimer } from "react-timer-hook";
 export const TimerContext = createContext()
 
 export const EasyGame = () => {
-  // const time = new Date();
-  // const value = {
-  //   time
-  // // }
-  // time.setSeconds(time.getSeconds() + 10); // 1分のタイマー
   const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
 
   // タイマー終了時に呼ばれる関数
@@ -84,9 +79,6 @@ export const EasyGame = () => {
               </div>
             </div>
             <div className="game_page_timer">
-              {/* <MyTimer expiryTimestamp={time} onTimeUp={handleTimeUp} /> */}
-              {/* <MyTimer expiryTimestamp={expiryTimestamp} onTimeUp={handleTimeUp} /> */}
-              {/* timerコンポーネント */}
               <div className="timer_context">
                 <div className="timer_text">TIMER</div>
                   <div className="timer_number">

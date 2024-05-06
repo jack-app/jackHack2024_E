@@ -53,8 +53,6 @@ const VibrationImage = ({volumeData,filepath,x,y,size,clearTime}) => {
     }, 100);
   
   },[volumeData, filepath, x, y, size]);
-
-  // console.log(showTooltip)
   return (
     <div className="hover-image-container">
         <img

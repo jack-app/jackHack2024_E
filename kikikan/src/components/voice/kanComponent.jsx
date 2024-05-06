@@ -6,8 +6,6 @@ import test from '../../assets/kan.jpeg';
 import Modal from './modal'
 import { TimerContext } from '../../pages/EasyGame/easyGame';
 
-// export const ChildTimerContext = createContext();
-
 const KanComponent = (props) => {
   const { handleAddTime,handleDecTime  } = useContext(TimerContext);
   // メータ要素への参照を保持するref
@@ -21,8 +19,6 @@ const KanComponent = (props) => {
       // eventhandler
       const onProcess = (event) => {
         const data = event.inputBuffer.getChannelData(0);
-        // const percent = CalculatePeakLevel(data);
-        // RenderMeter(percent, meterRef.current);
         setVolumeData(data)
       };
 

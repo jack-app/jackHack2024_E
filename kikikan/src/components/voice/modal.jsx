@@ -63,7 +63,6 @@ const Modal = (props) => {
       }
     } else if (filepath === "lithium") {
       //timer減少
-      // setIsVisible(true);
       handleDecTime()
       closeModel();
     }
@@ -74,7 +73,6 @@ const Modal = (props) => {
       window.location.href = "/gameover";
     } else if (filepath === "lithium") {
       //timer増加
-      // setIsVisible(true);
       handleAddTime()
       closeModel();
     }
@@ -93,7 +91,6 @@ const Modal = (props) => {
       {props.showFlag ? (
         <div className="overlay">
           <div className="modal-content">
-            {/* <p>{props.content}</p> */}
             <button className="modal_back_button" onClick={BackModel}>
               別の缶を見る ↩︎
             </button>
