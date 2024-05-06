@@ -42,7 +42,7 @@ const VibrationBeni = ({volumeData,filepath,x,y,size}) => {
   
   },[volumeData, filepath, x, y, size]);
 
-  console.log(showTooltip)
+  // console.log(showTooltip)
   return (
     <div className="hover-image-container">
         <img

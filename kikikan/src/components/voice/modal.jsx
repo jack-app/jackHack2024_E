@@ -1,11 +1,11 @@
-import React, { useCallback, useState, useContext} from "react";
+import React, { useCallback, useState, useContext } from "react";
 import "./modal.css";
 import imageUrl from "../../assets/kan.jpeg";
 import imageUrl2 from "../../assets/test.png";
 import benikoji from "../../assets/benikoji.png";
 import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
-import hatena from "../../assets/hatena.png"
+import hatena from "../../assets/hatena.png";
 import { isVisibleContext } from "./vibrationImage";
 
 // 検索でどうにかする
@@ -43,22 +43,21 @@ const useLocalStorage = (key, initValue) => {
 };
 
 const Modal = (props) => {
-  const [count, setCount] = useLocalStorage("counter", "0");
-
   // context 用
-  const {isVisible, setIsVisible} = useContext(isVisibleContext);
-  
+  const { isVisible, setIsVisible } = useContext(isVisibleContext);
+
   const toProcess = (filepath) => {
     if (filepath === "bomkan") {
-      if (count < 3) {
-        setIsVisible(true);
-        setCount(() => `${Number(count) + 1}`);
-        console.log(count);
-        closeModel();
-      } else {
-        localStorage.setItem("clearTime", props.clearTime );
-        console.log(props.clearTime);
+      let bomCount = Number(localStorage.getItem("bomCount"));
+      bomCount--;
+      localStorage.setItem("bomCount", bomCount);
+      // localStorageの値が変更されたことを通知するイベントを発生させる
+      window.dispatchEvent(new Event("storage"));
+
+      if (bomCount <= 0) {
         window.location.href = "/clear";
+      } else {
+        closeModel();
       }
     } else if (filepath === "lithium") {
       //timer減少
