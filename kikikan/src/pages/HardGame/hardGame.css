@@ -1,0 +1,214 @@
+.timer_context {
+  margin: 1vw;
+  padding: 3vw;
+  border: 1px solid white;
+}
+
+.timer_text {
+  margin: 0;
+  padding: 0;
+  font-size: 2vw;
+}
+
+.timer_number {
+  margin: 0;
+  padding: 0;
+  font-size: 4vw;
+  color: rgba(241, 204, 1, 1);
+}
+.easy_game_wrapper {
+  margin: 1vw;
+  padding: 1vw;
+  font-family: var(--font-japanese);
+  color: white;
+}
+
+.game_context {
+  background-color: black;
+  width: 100%;
+}
+
+.game_detail {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.game_message {
+  display: flex;
+}
+
+.game_page_face {
+  margin-top: 5vw;
+  width: 125px;
+  height: 150px;
+}
+
+.game__message_text {
+  font-size: 2vw;
+  color: white;
+  margin: 2vw;
+  margin-top: 5vw;
+  padding: 0;
+}
+
+.game_page_level_text {
+  color: white;
+  font-size: 3vw;
+  margin: 2vw;
+}
+
+.game_page_bom_text {
+  color: white;
+  /* font-size: 3vw; */
+  margin: 2vw;
+}
+
+.finding_kan_context {
+  background-color: white;
+  margin: 3vw;
+  width: 25vw;
+  display: flex;
+  border-radius: 50px;
+}
+
+.bomkan_context {
+  margin: 3vw;
+}
+
+.game_page_bomkan_image {
+  width: 50px;
+  height: 100px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.bomkan_text {
+  color: black;
+}
+.richiumkan_context {
+  margin-top: 3vw;
+}
+.game_page_richiumkan_image {
+  width: 50px;
+  height: 100px;
+  margin-left: 30px;
+}
+
+.richiumkan_text {
+  color: black;
+}
+
+.game_page_timer {
+  margin-top: 3vw;
+  justify-content: flex-end;
+}
+
+.game_page_volume_menter{
+background:white;
+padding: 10px;
+width: 90%;
+margin: 1vw auto;
+}
+
+.game_screen {
+  z-index: 0;
+  width: 90%;
+  margin: auto;
+  position: relative;
+}
+.screen {
+  z-index: 1;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 5vw;
+}
+
+.easy_game_screen_kan_1 {
+  position: absolute;
+  z-index: 10;
+  bottom: 63vw;
+  left: -20vw;
+}
+
+.easy_game_screen_kan_2 {
+  position: absolute;
+  z-index: 10;
+  bottom: 70vw;
+  left: 50vw;
+}
+
+.easy_game_screen_kan_3 {
+  position: absolute;
+  z-index: 10;
+  bottom: 63vw;
+  left: -17vw;
+}
+
+.easy_game_screen_kan_4 {
+  position: absolute;
+  z-index: 10;
+  bottom: 63vw;
+  left: -27vw;
+}
+
+.easy_game_screen_kan_5 {
+  position: absolute;
+  z-index: 10;
+  bottom: 60vw;
+  left: -11vw;
+}
+
+.easy_game_screen_kan_6 {
+  position: absolute;
+  z-index: 10;
+  bottom: 58vw;
+  left: -20vw;
+}
+
+.easy_game_screen_kan_7 {
+  position: absolute;
+  z-index: 10;
+  bottom: 67vw;
+  left: -13vw;
+}
+
+.easy_game_screen_kan_8 {
+  position: absolute;
+  z-index: 10;
+  bottom: 73vw;
+  left: -7vw;
+}
+
+.easy_game_screen_kan_9 {
+  position: absolute;
+  z-index: 10;
+  bottom: 61vw;
+  left: 0vw;
+}
+.easy_game_screen_kan_10 {
+  position: absolute;
+  z-index: 10;
+  bottom: 80vw;
+  left: 7vw;
+}
+.easy_game_screen_kan_11 {
+  position: absolute;
+  z-index: 10;
+  bottom: 80vw;
+  left: 35vw;
+}
+.easy_game_screen_kan_12 {
+  position: absolute;
+  z-index: 10;
+  bottom: 80vw;
+  left: 38vw;
+}
+.easy_game_screen_kan_13 {
+  position: absolute;
+  z-index: 10;
+  bottom: 76vw;
+  left: 46w;
+}
