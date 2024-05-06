@@ -20,7 +20,7 @@ export const HardGame = () => {
   };
 
   // timer component 移住
-  const [expiryTimestamp, setExpiryTimestamp] = useState(new Date().getTime() + 60000); // 1時間後に設定
+  const [expiryTimestamp, setExpiryTimestamp] = useState(new Date().getTime() + 6000000); // 1時間後に設定
 
   const { seconds, minutes ,restart} = useTimer({
     expiryTimestamp,
