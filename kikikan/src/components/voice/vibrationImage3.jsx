@@ -62,7 +62,7 @@ const VibrationImage = ({volumeData,filepath,x,y,size,clearTime,level}) => {
         style={{
           display: 'block',
           position: 'absolute',
-          opacity : 0.4,
+          opacity : 0.5,
           visibility: isVisible ? 'visible' : 'hidden'
         }}
         className='image'
