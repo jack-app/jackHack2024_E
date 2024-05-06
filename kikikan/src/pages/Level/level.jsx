@@ -7,7 +7,7 @@ import "./level.css";
 export const Level = () => {
   const [name, setName] = useState("名無し");
   localStorage.setItem("name", name);
-  localStorage.setItem("level", "初級");
+  localStorage.setItem("bomCount", 3);
 
   return (
     <div className="wrapper">

@@ -15,11 +15,12 @@ const KanComponent = (props) => {
 
   useEffect(() => {
     const startAudio = async () => {
-      const {ctx, media} = await CreateAudioContext();
-      
+      const { ctx, media } = await CreateAudioContext();
+
       // eventhandler
       const onProcess = (event) => {
         const data = event.inputBuffer.getChannelData(0);
+
         setVolumeData(data)
       };
 
@@ -42,6 +43,7 @@ const KanComponent = (props) => {
     </div>
     </TimerContext.Provider>
   )
+
 };
 
 export default KanComponent;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext, useCallback } from "react";
 import face from "../../assets/face.png";
 import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
@@ -12,13 +12,43 @@ import { useTimer } from "react-timer-hook";
 
 export const TimerContext = createContext()
 
-export const EasyGame = () => {
-  const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
+const getLocalStorageValue = (key, initValue) => {
+  const item = localStorage.getItem(key);
+  return item ? item : initValue;
+};
+const useLocalStorage = (key, initValue) => {
+  const [value, setValue] = useState(() =>
+    getLocalStorageValue(key, initValue)
+  );
 
+  //状態の変更とともにlocalStorageを更新する
+  const setLocalStorageValue = useCallback(
+    (setStateAction) => {
+      const newValue =
+        typeof setStateAction === "function"
+          ? setStateAction(value)
+          : setStateAction;
+      localStorage.setItem(key, newValue);
+      setValue(() => newValue);
+    },
+    [key, value]
+  );
+  return [value, setLocalStorageValue];
+};
+
+export const EasyGame = () => {
+
+  const [bomCount, setBomCount] = useLocalStorage("bomCount", 3);
+
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 60); // 10秒のタイマー
+
+  const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
   // タイマー終了時に呼ばれる関数
   const handleTimeUp = () => {
-    window.location.href = "/over";
+    window.location.href = "/gameover";
   };
+
 
   // timer component 移住
   const [expiryTimestamp, setExpiryTimestamp] = useState(new Date().getTime() + 60000); // 1時間後に設定
@@ -42,13 +72,24 @@ export const EasyGame = () => {
     console.log(seconds) 
   };
 
+
   useEffect(() => {
     const interval = setInterval(() => {
       setClearTime((clearTime) => clearTime + 1);
       console.log(clearTime)
     }, 1000);
 
-    return () => clearInterval(interval);
+     // ローカルストレージの変更を監視するイベントリスナーを設定
+     const handleStorageChange = () => {
+      setBomCount(localStorage.getItem('bomCount') || 3);
+    };
+    window.addEventListener('storage', handleStorageChange);
+
+    // クリーンアップ関数でイベントリスナーを削除
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, []);
 
   return (
@@ -61,8 +102,8 @@ export const EasyGame = () => {
             <div className="text_context">
               <div className="game__message_text">危機感もてよ！</div>
               <div className="game_page_level_text">初級</div>
-              <div className="game_page_bom_text">BOMKAN 残り 2個</div>
-              {/* <button onClick={() =>addTenSeconds}>+10 Seconds</button> */}
+              <div className="game_page_bom_text">BOMKAN 残り {bomCount}個</div>
+
             </div>
 
             <div className="finding_kan_context">
@@ -90,7 +131,6 @@ export const EasyGame = () => {
             </div>
         </div>
         <div className="game_screen">
-          
           <div className="easy_game_screen_kan_1">
             <KanComponent x={3} y={1} img={"lithium"} size={6} clearTime={clearTime} level={"easy"}/>
           </div>
@@ -137,5 +177,3 @@ export const EasyGame = () => {
     </TimerContext.Provider>
   );
 };
-
-
