@@ -40,14 +40,12 @@ export const GameClear = () => {
       const myResult = {
         name,
         level,
-        clear_time: clearTime,
+        clear_time: Number(clearTime),
         created_at: formatDate(createdAt),
       };
       const myResultRef = child(dbRef, `result/${uuid}`);
       await set(myResultRef, myResult);
-
-      // rankが"easy"のデータを取得する
-      const queryRef = query(resultRef, orderByChild("level"), equalTo("初級"));
+      const queryRef = query(resultRef, orderByChild("level"), equalTo(level));
 
       try {
         const snapshot = await get(queryRef);
@@ -55,7 +53,7 @@ export const GameClear = () => {
           const data = snapshot.val();
           const sortedResults = Object.entries(data)
             .map(([id, result]) => ({ id, ...result }))
-            .sort((a, b) => a.clear_time.localeCompare(b.clear_time));
+            .sort((a, b) => a.clear_time - b.clear_time);
           setResults(sortedResults);
         } else {
           console.log("No data available");
@@ -68,6 +66,7 @@ export const GameClear = () => {
     fetchData();
   }, []);
   const length = 5 < results.length ? 5 : results.length; // 最大5位まで表示
+  const index = results.findIndex((obj) => obj.id === uuid);
   return (
     <div className="clear-container">
       <img src={logo} className="logo_clear" alt="kikikan" />
@@ -87,10 +86,23 @@ export const GameClear = () => {
               rank={index + 1}
               name={result.name}
               time={result.clear_time}
+              isMine={result.id === uuid}
             />
           ))}
-          <div className="ranking-table-content">...</div>
-          <div className="ranking-table-content-me">44位 マロン 44:44</div>
+          {() =>
+            index >
+            4(
+              <>
+                <div className="ranking-table-content">...</div>
+                <RankingRow
+                  rank={index + 1}
+                  name={name}
+                  time={Number(clearTime)}
+                  isMine={true}
+                />
+              </>
+            )
+          }
         </div>
         <div className="button-wrapper">
           <img src={face} className="clear-face" alt="clear!" />
@@ -101,14 +113,6 @@ export const GameClear = () => {
     </div>
   );
 };
-
-function formatTime(timeInSeconds) {
-  const minutes = Math.floor(timeInSeconds / 60);
-  const seconds = timeInSeconds % 60;
-  return `${minutes.toString().padStart(2, "0")}:${seconds
-    .toString()
-    .padStart(2, "0")}`;
-}
 
 function formatDate(dateString) {
   const options = {

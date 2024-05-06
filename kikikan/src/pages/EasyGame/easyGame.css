@@ -1,3 +1,21 @@
+.timer_context {
+  margin: 1vw;
+  padding: 3vw;
+  border: 1px solid white;
+}
+
+.timer_text {
+  margin: 0;
+  padding: 0;
+  font-size: 2vw;
+}
+
+.timer_number {
+  margin: 0;
+  padding: 0;
+  font-size: 4vw;
+  color: rgba(241, 204, 1, 1);
+}
 .easy_game_wrapper {
   margin: 1vw;
   padding: 1vw;
