@@ -64,7 +64,7 @@ const VibrationImage = ({volumeData,filepath,x,y,size,clearTime,level}) => {
       <img
         ref={imgRef}
         src={getImage[filepath]}
-        alt="Vibration Image"
+        alt="VibrationImage"
         style={{
           display: "block",
           position: "absolute",
@@ -76,21 +76,12 @@ const VibrationImage = ({volumeData,filepath,x,y,size,clearTime,level}) => {
           onModal();
         }}
       />
-      <isVisibleContext.Provider value={value}>
-        <Modal
-          showFlag={showModal}
-          setShowModal={setShowModal}
-          content="てすと"
-          filepath={filepath}
-          clearTime={clearTime}
-          
-        />
 
         <isVisibleContext.Provider value={value}>
           <Modal showFlag={showModal} setShowModal={setShowModal} content="てすと" filepath={filepath} clearTime={clearTime} level={level}/>
         </isVisibleContext.Provider>
 
-    </div>
+      </div>
   );
 };
 export default VibrationImage;
