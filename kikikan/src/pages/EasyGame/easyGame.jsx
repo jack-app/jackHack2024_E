@@ -7,7 +7,7 @@ import benikoji from "../../assets/benikoji.png";
 import "./easyGame.css";
 import KanComponent from "../../components/voice/kanComponent";
 import BeniComponent from "../../components/voice/beniComponent";
-// import { MyTimer } from "../../components/Timer/timer";
+import VolumeMeter from "../../components/voice/volumeMeter";
 import { useTimer } from "react-timer-hook";
 
 export const TimerContext = createContext()
@@ -129,6 +129,9 @@ export const EasyGame = () => {
                 </div>
               </div>
             </div>
+        </div>
+        <div className="game_page_volume_menter">
+          <VolumeMeter />
         </div>
         <div className="game_screen">
           <div className="easy_game_screen_kan_1">
