@@ -21,7 +21,7 @@ export const NormalGame = () => {
   };
 
   // timer component 移住
-  const [expiryTimestamp, setExpiryTimestamp] = useState(new Date().getTime() + 600000); // 1時間後に設定
+  const [expiryTimestamp, setExpiryTimestamp] = useState(new Date().getTime() + 60000); // 1時間後に設定
 
   const { seconds, minutes ,restart} = useTimer({
     expiryTimestamp,
@@ -153,11 +153,9 @@ export const NormalGame = () => {
           <div className="easy_game_screen_kan_14">
             <BeniComponent x={3} y={1} img={"benikoji"} size={6} clearTime={clearTime}/>
           </div>
-          
           <div className="easy_game_screen_kan_15">
             <BeniComponent x={3} y={1} img={"benikoji"} size={8} clearTime={clearTime}/>
           </div>
-          
           <div className="easy_game_screen_kan_16">
             <BeniComponent x={3} y={1} img={"benikoji"} size={6} clearTime={clearTime}/>
           </div>
