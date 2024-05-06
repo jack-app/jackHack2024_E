@@ -6,8 +6,8 @@ import benikoji from "../../assets/benikoji.png";
 import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
 import hatena from "../../assets/hatena.png"
-import { isVisibleContext } from "./vibrationImage";
-import { TimerContext } from "../../pages/EasyGame/easyGame";
+import { isVisibleContext } from "./vibrationImage2";
+import { TimerContext } from "../../pages/NormalGame/normalGame";
 // 検索でどうにかする
 const getImage = {
   kan: imageUrl,
