@@ -1,0 +1,6 @@
+.start_button_text{
+    font-size: 5vw;
+    font-family: var(--font-english);
+    background:transparent;
+    border: none;
+}

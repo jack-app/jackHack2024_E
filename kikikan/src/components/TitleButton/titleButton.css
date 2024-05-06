@@ -1,0 +1,14 @@
+.title-button-wrapper {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.title-button {
+  margin: 0 auto;
+  font-size: 55px;
+  width: auto;
+  color: white;
+  background-color: black;
+  font-family: "RocknRoll One", sans-serif;
+}
