@@ -1,35 +1,29 @@
-import {NavLink} from "react-router-dom";
 import "./gameOver.css";
 import { TitleButton } from "../../components/TitleButton/titleButton";
 import GameOverLogo from "../../assets/GAMEOVER.png";
 import jojiface from "../../assets/face.png";
+import logo from "../../assets/kikikan_logo.png";
 
 export const GameOver = () => {
   return (
     <div>
-      <h1>GameOver</h1>
       <div className="gameover-container">
-        <img
-          src={GameOverLogo}
-          className="GameOverLogo"
-          alt="GameOverLogo"
-        />
+        <img src={logo} className="logo_clear" alt="kikikan" />
+        <div className="gameover-title">
+          <img src={GameOverLogo} alt="Game Over" className="gameover-logo" />
+        </div>
+        <div className="aoribun-wrapper">
+          <div className="joji-message">
+            <p>厳しいって！！！</p>
+            <p>もっとKIKIKAN持てよ！</p>
+            <p>もう一回やれよ！</p>
+          </div>
+          <div className="joji-face-wrapper">
+            <img src={jojiface} alt="joji" className="joji-face" />
+          </div>
+        </div>
+        <TitleButton />
       </div>
-    <div className="aoribun-wrapper">
-      <div className="joji-message">～ゲームオーバー理由
-        厳しいって。～</div>
-      <div className="jojiface">
-        <img
-          src={jojiface}
-          className="jojiface"
-          alt="jojiface"
-        />
-      </div>
-    <div>
-      
-    </div>
-    </div>
-      <TitleButton/>
     </div>
   );
 };
