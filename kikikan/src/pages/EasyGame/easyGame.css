@@ -88,6 +88,13 @@
   justify-content: flex-end;
 }
 
+.game_page_volume_menter{
+background:white;
+padding: 10px;
+width: 90%;
+margin: 1vw auto;
+}
+
 .game_screen {
   z-index: 0;
   width: 90%;
@@ -113,4 +120,77 @@
   z-index: 10;
   bottom: 70vw;
   left: 50vw;
+}
+
+.easy_game_screen_kan_3 {
+  position: absolute;
+  z-index: 10;
+  bottom: 63vw;
+  left: -17vw;
+}
+
+.easy_game_screen_kan_4 {
+  position: absolute;
+  z-index: 10;
+  bottom: 63vw;
+  left: -27vw;
+}
+
+.easy_game_screen_kan_5 {
+  position: absolute;
+  z-index: 10;
+  bottom: 60vw;
+  left: -11vw;
+}
+
+.easy_game_screen_kan_6 {
+  position: absolute;
+  z-index: 10;
+  bottom: 58vw;
+  left: -20vw;
+}
+
+.easy_game_screen_kan_7 {
+  position: absolute;
+  z-index: 10;
+  bottom: 67vw;
+  left: -13vw;
+}
+
+.easy_game_screen_kan_8 {
+  position: absolute;
+  z-index: 10;
+  bottom: 73vw;
+  left: -7vw;
+}
+
+.easy_game_screen_kan_9 {
+  position: absolute;
+  z-index: 10;
+  bottom: 61vw;
+  left: 0vw;
+}
+.easy_game_screen_kan_10 {
+  position: absolute;
+  z-index: 10;
+  bottom: 80vw;
+  left: 7vw;
+}
+.easy_game_screen_kan_11 {
+  position: absolute;
+  z-index: 10;
+  bottom: 80vw;
+  left: 35vw;
+}
+.easy_game_screen_kan_12 {
+  position: absolute;
+  z-index: 10;
+  bottom: 80vw;
+  left: 38vw;
+}
+.easy_game_screen_kan_13 {
+  position: absolute;
+  z-index: 10;
+  bottom: 76vw;
+  left: 46w;
 }

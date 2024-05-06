@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import face from "../../assets/face.png";
 import bomkan from "../../assets/bomkan.png";
 import lithium from "../../assets/lithium.png";
-import stage02 from "../../assets/stage02.jpg";
-import "./normalGame.css";
+import stage03 from "../../assets/stage03.jpg";
+import "./hardGame.css";
 import VolumeMeter from "../../components/voice/volumeMeter";
 import KanComponent from "../../components/voice/kanComponent";
 import { MyTimer } from "../../components/Timer/timer";
 
-export const NormalGame = () => {
+export const HardGame = () => {
   const time = new Date();
-  time.setSeconds(time.getSeconds() + 6000000); // 10秒のタイマー
+  time.setSeconds(time.getSeconds() + 60); // 10秒のタイマー
   const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
 
   // タイマー終了時に呼ばれる関数
@@ -33,7 +33,7 @@ export const NormalGame = () => {
             <img className="game_page_face" src={face} alt="" />
             <div className="text_context">
               <div className="game__message_text">危機感もてよ！</div>
-              <div className="game_page_level_text">中級</div>
+              <div className="game_page_level_text">上級</div>
               <div className="game_page_bom_text">BOMKAN 残り 3個</div>
             </div>
 
@@ -66,7 +66,7 @@ export const NormalGame = () => {
           <div className="easy_game_screen_kan_2">
             <KanComponent x={3} y={1} img={"bomkan"} size={2} />
           </div>
-          <img className="screen" src={stage02} alt="" />
+          <img className="screen" src={stage03} alt="" />
         </div>
       </div>
     </div>
