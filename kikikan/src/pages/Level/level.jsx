@@ -23,12 +23,14 @@ export const Level = () => {
         <div className="level_context">
           <div className="level">
             <LevelButton name="初級" />
-            {localStorage.getItem("easy_mode_clear") === "true" ? (
+            <LevelButton name="中級" />
+            <LevelButton name="上級" />
+            {/* {localStorage.getItem("easy_mode_clear") === "true" ? (
               <LevelButton name="中級" />
             ) : null}
             {localStorage.getItem("normal_mode_clear") === "true" ? (
               <LevelButton name="上級" />
-            ) : null}
+            ) : null} */}
           </div>
           <div className="message_context">
             <div className="message">

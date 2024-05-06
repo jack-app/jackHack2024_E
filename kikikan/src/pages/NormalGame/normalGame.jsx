@@ -115,13 +115,65 @@ export const NormalGame = () => {
             <KanComponent2 x={3} y={1} img={"lithium"} size={6} clearTime={clearTime}/>
           </div>
           <div className="easy_game_screen_kan_2">
+            <KanComponent2 x={3} y={1} img={"bomkan"} size={6} clearTime={clearTime}/>
+          </div>
+          <div className="easy_game_screen_kan_3">
             <KanComponent2 x={3} y={1} img={"lithium"} size={6} clearTime={clearTime}/>
           </div>
+          <div className="easy_game_screen_kan_4">
+            <KanComponent2 x={3} y={1} img={"lithium"} size={3} clearTime={clearTime}/>
+          </div>
+          <div className="easy_game_screen_kan_5">
+            <KanComponent2 x={3} y={1} img={"lithium"} size={2} clearTime={clearTime}/>
+          </div>
+          <div className="easy_game_screen_kan_6">
+            <KanComponent2 x={3} y={1} img={"lithium"} size={9} clearTime={clearTime}/>
+          </div>
+          <div className="easy_game_screen_kan_7">
+            <KanComponent2 x={3} y={1} img={"lithium"} size={5} clearTime={clearTime}/>
+          </div>
           <div className="easy_game_screen_kan_8">
-            <BeniComponent x={3} y={1} img={"benikoji"} size={3} />
+            <kanComponent2 x={3} y={1} img={"bomkan"} size={3} />
+          </div>
+          <div className="easy_game_screen_kan_9">
+            <KanComponent2 x={3} y={1} img={"bomkan"} size={6} clearTime={clearTime}/>
+          </div>
+          <div className="easy_game_screen_kan_10">
+            <KanComponent2 x={3} y={1} img={"lithium"} size={6} clearTime={clearTime}/>
+          </div>
+          <div className="easy_game_screen_kan_11">
+            <KanComponent2 x={3} y={1} img={"lithium"} size={5} clearTime={clearTime}/>
+          </div>
+          <div className="easy_game_screen_kan_12">
+            <KanComponent2 x={3} y={1} img={"lithium"} size={8} clearTime={clearTime}/>
+          </div>
+          <div className="easy_game_screen_kan_13">
+            <KanComponent2 x={3} y={1} img={"lithium"} size={6} clearTime={clearTime}/>
+          </div>
+          <div className="easy_game_screen_kan_14">
+            <BeniComponent x={3} y={1} img={"benikoji"} size={6} />
+          </div>
+          <div className="easy_game_screen_kan_15">
+            <BeniComponent x={3} y={1} img={"benikoji"} size={8} />
+          </div>
+          <div className="easy_game_screen_kan_16">
+            <BeniComponent x={3} y={1} img={"benikoji"} size={6} />
+          </div>
+          <div className="easy_game_screen_kan_17">
+            <BeniComponent x={3} y={1} img={"benikoji"} size={5} />
+          </div>
+          <div className="easy_game_screen_kan_18">
+            <BeniComponent x={3} y={1} img={"benikoji"} size={6}/>
+          </div>
+          <div className="easy_game_screen_kan_19">
+            <BeniComponent x={3} y={1} img={"benikoji"} size={8} />
+          </div>
+          <div className="easy_game_screen_kan_20">
+            <BeniComponent x={3} y={1} img={"benikoji"} size={8} />
           </div>
           <img className="screen" src={stage02} alt="" />
         </div>
+
       </div>
     </div>
     </TimerContext.Provider>
