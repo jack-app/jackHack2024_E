@@ -133,7 +133,7 @@ export const NormalGame = () => {
             <KanComponent2 x={3} y={1} img={"lithium"} size={5} clearTime={clearTime}/>
           </div>
           <div className="easy_game_screen_kan_8">
-            <BeniComponent x={3} y={1} img={"bomkan"} size={3} />
+            <kanComponent2 x={3} y={1} img={"bomkan"} size={3} />
           </div>
           <div className="easy_game_screen_kan_9">
             <KanComponent2 x={3} y={1} img={"bomkan"} size={6} clearTime={clearTime}/>
@@ -151,27 +151,27 @@ export const NormalGame = () => {
             <KanComponent2 x={3} y={1} img={"lithium"} size={6} clearTime={clearTime}/>
           </div>
           <div className="easy_game_screen_kan_14">
-            <KanComponent2 x={3} y={1} img={"benikoji"} size={6} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={6} clearTime={clearTime}/>
           </div>
           
           <div className="easy_game_screen_kan_15">
-            <KanComponent2 x={3} y={1} img={"benikoji"} size={8} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={8} clearTime={clearTime}/>
           </div>
           
           <div className="easy_game_screen_kan_16">
-            <KanComponent2 x={3} y={1} img={"benikoji"} size={6} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={6} clearTime={clearTime}/>
           </div>
           <div className="easy_game_screen_kan_17">
-            <KanComponent2 x={3} y={1} img={"benikoji"} size={5} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={5} clearTime={clearTime}/>
           </div>
           <div className="easy_game_screen_kan_18">
-            <KanComponent2 x={3} y={1} img={"benikoji"} size={6} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={6} clearTime={clearTime}/>
           </div>
           <div className="easy_game_screen_kan_19">
-            <KanComponent2 x={3} y={1} img={"benikoji"} size={8} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={8} clearTime={clearTime}/>
           </div>
           <div className="easy_game_screen_kan_20">
-            <KanComponent2 x={3} y={1} img={"benikoji"} size={8} clearTime={clearTime}/>
+            <BeniComponent x={3} y={1} img={"benikoji"} size={8} clearTime={clearTime}/>
           </div>
           <img className="screen" src={stage02} alt="" />
         </div>
