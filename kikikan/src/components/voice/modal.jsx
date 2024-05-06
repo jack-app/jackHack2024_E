@@ -52,7 +52,7 @@ const Modal = (props) => {
   const toProcess = (filepath) => {
     if (filepath === "bomkan") {
       if (count < 3) {
-        setIsVisible(true);
+        // setIsVisible(true);
         setCount(() => `${Number(count) + 1}`);
         console.log(count);
         closeModel();
