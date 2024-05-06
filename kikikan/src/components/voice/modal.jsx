@@ -8,6 +8,7 @@ import lithium from "../../assets/lithium.png";
 import hatena from "../../assets/hatena.png"
 import { isVisibleContext } from "./vibrationImage";
 import { TimerContext } from "../../pages/EasyGame/easyGame";
+
 // 検索でどうにかする
 const getImage = {
   kan: imageUrl,

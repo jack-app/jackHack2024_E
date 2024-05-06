@@ -1,10 +1,18 @@
 /* body {
-    background-image: url("../../assets/start.jsx.png");
+    background-image: url("../../assets/starthaikei.png");
     background-size: cover;
+    width: 100%;
     background-repeat: no-repeat;
-    background-position: 18% 20%;
-    /* background-attachment: fixed; */
-    /* height: 100%; */
+    background-position: 20% 20%;
+    background-attachment: fixed;
+     background-clip: padding-box;
+     position: relative;
+} */
+
+.start_page_context{
+    width: 100%;
+    overflow: hidden;
+}
 
 .start_page_logo{
     height: 20vh;
@@ -12,55 +20,38 @@
     margin: 80px 0 90px 110px;
 }
 .toguro {
-  height: 59vh;
-  width: 70vh;
-  margin-bottom: 10px;
-  position: absolute;
-  left: 60px;
-  bottom: 15px;
-}
-.city {
-  display: block;
-  height: 50vh;
-  width: 100%;
-}
-.start {
-  height: 50vh;
-  width: 50vh;
-}
-.start_page_homeless {
-  height: 350px;
+  height: 300px;
   width: 370px;
-  margin-left: 80px;
-  margin-bottom: 30px;
-  position: absolute;
-  right: 75px;
-  bottom: 0px;
+  margin-bottom: 1vh;
+  text-align: center;
+  /* position: absolute; */
+  /* left: 60px; */
+  /* bottom: 15px; */
 }
+
+.start_page_homeless {
+  height: 300px;
+  width: 370px;
+} 
+
 .start_page_start_button {
-  position: absolute;
-  margin: 10vh 0 48vh 83vh;
-}
+  margin-top: 10vh;
+} 
 
 .start_page_explain_button {
-  position: absolute;
-  margin: 26vh 0 48vh 90vh;
-}
+  text-align: center;
+} 
 
-.gamestart_text {
-  color: black;
-  position: absolute;
-  right: 200px;
-  border: none;
-  background-color: transparent;
-}
-.George {
+/* .George {
   height: 15vh;
   width: 15vh;
   position: absolute;
   top: 270px;
   right: 140px;
-}
-.start-page {
-  position: relative;
+} */
+
+.start_page_under{
+  display: flex;
+  margin: 0 0 15vh 15vh;
+  /* text-align: center; */
 }

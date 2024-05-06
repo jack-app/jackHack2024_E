@@ -29,7 +29,7 @@ const VibrationImage = ({volumeData,filepath,x,y,size,clearTime}) => {
   //context用
   const { handleAddTime,handleDecTime  } = useContext(TimerContext);
   const value = {isVisible,setIsVisible};
-  
+
   // click用
   const onModal = () => {
     setShowModal(true);
