@@ -52,15 +52,17 @@ const Modal = (props) => {
 
   const toProcess = (filepath) => {
     if (filepath === "bomkan") {
-      if (count < 3) {
-        // setIsVisible(true);
-        setCount(() => `${Number(count) + 1}`);
-        console.log(count);
-        closeModel();
-      } else {
-        localStorage.setItem("clearTime", props.clearTime );
-        console.log(props.clearTime);
+      let bomCount = Number(localStorage.getItem("bomCount"));
+      bomCount--;
+      localStorage.setItem("bomCount", bomCount);
+      // localStorageの値が変更されたことを通知するイベントを発生させる
+      window.dispatchEvent(new Event("storage"));
+
+      if (bomCount <= 0) {
+        localStorage.setItem('clearTime', props.clearTime)
         window.location.href = "/clear";
+      } else {
+        closeModel();
       }
     } else if (filepath === "lithium") {
       //timer減少
