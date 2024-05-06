@@ -58,6 +58,7 @@ const Modal = (props) => {
       window.dispatchEvent(new Event("storage"));
 
       if (bomCount <= 0) {
+        localStorage.setItem('clearTime', props.clearTime)
         window.location.href = "/clear";
       } else {
         closeModel();
