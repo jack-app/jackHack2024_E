@@ -1,4 +1,4 @@
-import React, { useRef, useEffect,useState, createContext } from 'react';
+import React, { useRef, useEffect,useState, createContext,useContext } from 'react';
 import { CreateAudioContext } from './audioContext';
 import { CalculatePeakLevel } from './utils';
 import imageUrl from '../../assets/kan.jpeg'
@@ -7,7 +7,8 @@ import benikoji from '../../assets/benikoji.png'
 import bomkan from '../../assets/bomkan.png'
 import lithium from '../../assets/lithium.png'
 import Modal from './modal'
-
+import ChildTimerContext from './kanComponent'
+import { TimerContext } from '../../pages/EasyGame/easyGame';
 // 検索でどうにかする
 const getImage = {
   'kan' : imageUrl,
@@ -26,8 +27,9 @@ const VibrationImage = ({volumeData,filepath,x,y,size,clearTime}) => {
   const [isVisible, setIsVisible] = useState(true); 
 
   //context用
+  const { handleAddTime,handleDecTime  } = useContext(TimerContext);
   const value = {isVisible,setIsVisible};
-
+  
   // click用
   const onModal = () => {
     setShowModal(true);

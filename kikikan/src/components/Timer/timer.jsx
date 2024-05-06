@@ -14,6 +14,7 @@ export function MyTimer({onTimeUp ,addTenSeconds}) {
     setExpiryTimestamp(expiryTimestamp + 10000); // 10秒追加
     restart(expiryTimestamp + 10000);
     console.log(seconds) 
+    addTenSeconds(); // 親コンポーネントの関数を呼び出す
   };
   return (
     <div className="timer_context">

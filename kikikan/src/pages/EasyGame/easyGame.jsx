@@ -7,53 +7,44 @@ import benikoji from "../../assets/benikoji.png";
 import "./easyGame.css";
 import KanComponent from "../../components/voice/kanComponent";
 import BeniComponent from "../../components/voice/beniComponent";
-import { MyTimer } from "../../components/Timer/timer";
+// import { MyTimer } from "../../components/Timer/timer";
+import { useTimer } from "react-timer-hook";
 
-export const TimerCount = createContext()
+export const TimerContext = createContext()
 
 export const EasyGame = () => {
-//   // 1分のタイマー時間を設定
-// const initialTimerDuration = 60; // 1分 = 60秒
-// const [timerDuration, setTimerDuration] = useState(initialTimerDuration); // タイマー時間を管理する状態変数
-
-// // タイマーの終了時刻を計算して設定
-// const [expiryTimestamp, setExpiryTimestamp] = useState(() => {
-//   const time = new Date();
-//   time.setSeconds(time.getSeconds() + timerDuration);
-//   return time;
-// });
-
-// // タイマー終了時に呼ばれる関数
-// const handleTimeUp = () => {
-//   window.location.href = "/over";
-// };
-
-// // タイマー時間を10秒増やす関数
-// const addTenSeconds = () => {
-//   setTimerDuration((prevTimerDuration) => prevTimerDuration + 10); // タイマー時間を10秒増やす
-//   setExpiryTimestamp((prevExpiryTimestamp) => {
-//     const newExpiryTimestamp = new Date(prevExpiryTimestamp.getTime() + 10000); // 10秒(10000ミリ秒)を追加
-//     return newExpiryTimestamp;
-//   });
-// };
-
-// useEffect(() => {
-//   const interval = setInterval(() => {
-//     setTimerDuration((prevTimerDuration) => prevTimerDuration - 1);
-//   }, 1000);
-//   console.log()
-//   return () => clearInterval(interval);
-// }, []);
-  const time = new Date();
-  const value = {
-    time
-  }
-  time.setSeconds(time.getSeconds() + 10); // 1分のタイマー
+  // const time = new Date();
+  // const value = {
+  //   time
+  // // }
+  // time.setSeconds(time.getSeconds() + 10); // 1分のタイマー
   const [clearTime, setClearTime] = useState(0); // 経過時間を管理する状態
 
   // タイマー終了時に呼ばれる関数
   const handleTimeUp = () => {
     window.location.href = "/over";
+  };
+
+  // timer component 移住
+  const [expiryTimestamp, setExpiryTimestamp] = useState(new Date().getTime() + 60000); // 1時間後に設定
+
+  const { seconds, minutes ,restart} = useTimer({
+    expiryTimestamp,
+    onExpire: handleTimeUp, 
+  });
+
+  const handleAddTime = () => {
+    const newExpiryTimestamp = expiryTimestamp + 10000;
+    setExpiryTimestamp(newExpiryTimestamp); // 10秒追加
+    restart(newExpiryTimestamp);
+    console.log(seconds) 
+  };
+
+  const handleDecTime = () => {
+    const newExpiryTimestamp = expiryTimestamp - 10000;
+    setExpiryTimestamp(newExpiryTimestamp); // 10秒引く
+    restart(newExpiryTimestamp);
+    console.log(seconds) 
   };
 
   useEffect(() => {
@@ -65,6 +56,7 @@ export const EasyGame = () => {
   }, []);
 
   return (
+    <TimerContext.Provider value={{ handleAddTime,handleDecTime }}>
     <div className="easy_game_wrapper">
       <div className="game_context">
         <div className="game_detail">
@@ -92,8 +84,15 @@ export const EasyGame = () => {
               </div>
             </div>
             <div className="game_page_timer">
-              <MyTimer expiryTimestamp={time} onTimeUp={handleTimeUp} />
+              {/* <MyTimer expiryTimestamp={time} onTimeUp={handleTimeUp} /> */}
               {/* <MyTimer expiryTimestamp={expiryTimestamp} onTimeUp={handleTimeUp} /> */}
+              {/* timerコンポーネント */}
+              <div className="timer_context">
+                <div className="timer_text">TIMER</div>
+                  <div className="timer_number">
+                    <span>{minutes}</span>:<span>{seconds}</span>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
@@ -142,6 +141,7 @@ export const EasyGame = () => {
         </div>
       </div>
     </div>
+    </TimerContext.Provider>
   );
 };
 
