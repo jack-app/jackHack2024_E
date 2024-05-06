@@ -6,9 +6,9 @@ import imageUrl2 from '../../assets/test.png'
 import benikoji from '../../assets/benikoji.png'
 import bomkan from '../../assets/bomkan.png'
 import lithium from '../../assets/lithium.png'
-import Modal from './modal'
+import Modal from './modal3'
 import ChildTimerContext from './kanComponent'
-import { TimerContext } from '../../pages/EasyGame/easyGame';
+import { TimerContext } from '../../pages/HardGame/hardGame';
 // 検索でどうにかする
 const getImage = {
   'kan' : imageUrl,
