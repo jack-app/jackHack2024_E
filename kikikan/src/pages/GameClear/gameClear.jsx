@@ -32,11 +32,20 @@ export const GameClear = () => {
   const clearTime = localStorage.getItem("clearTime");
   const createdAt = new Date().toISOString();
 
+  // クリアした難易度をローカルストレージに保存
+  if (level === "初級") {
+    localStorage.setItem("easy_mode_clear", true);
+  } else if (level === "中級") {
+    localStorage.setItem("normal_mode_clear", true);
+  } else if (level === "上級") {
+    localStorage.setItem("hard_mode_clear", true);
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       const dbRef = ref(db);
       const resultRef = child(dbRef, "result");
-      // データを保存
+      // 自分のデータをまとめてfirebaseに保存
       const myResult = {
         name,
         level,
@@ -47,6 +56,7 @@ export const GameClear = () => {
       await set(myResultRef, myResult);
       const queryRef = query(resultRef, orderByChild("level"), equalTo(level));
 
+      // firebaseからデータを取得
       try {
         const snapshot = await get(queryRef);
         if (snapshot.exists()) {
@@ -65,7 +75,9 @@ export const GameClear = () => {
 
     fetchData();
   }, []);
+  // ランキング表示
   const length = 5 < results.length ? 5 : results.length; // 最大5位まで表示
+  // 自分の順位を取得
   const index = results.findIndex((obj) => obj.id === uuid);
   return (
     <div className="clear-container">
